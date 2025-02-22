@@ -10,12 +10,161 @@
         var encounter_chance = 1;
         var gm_difficulty = 2;
         var gm_difficulty_n = ["Easy","Normal","Hard"];
+        var gm_tower_map = [0,2,2,2,2,2,2,2,2,2,2,1];
+        
+        var gm_tower_objects = {
+            floor_starting: {
+                item0: 0,
+                item1: 0,
+                item2: 0,
+                item3: 0,
+                item0_s: 0,
+                item1_s: 0,
+                item2_s: 0,
+                item3_s: 0
+            },
+
+            floor_1: {
+                item0: 0,
+                item1: 0,
+                item2: 0,
+                item3: 0,
+                item0_s: 0,
+                item1_s: 0,
+                item2_s: 0,
+                item3_s: 0
+            },
+
+            floor_2: {
+                item0: 0,
+                item1: 0,
+                item2: 0,
+                item3: 0,
+                item0_s: 0,
+                item1_s: 0,
+                item2_s: 0,
+                item3_s: 0
+            },
+
+            floor_3: {
+                item0: 0,
+                item1: 0,
+                item2: 0,
+                item3: 0,
+                item0_s: 0,
+                item1_s: 0,
+                item2_s: 0,
+                item3_s: 0
+            },
+
+            floor_4: {
+                item0: 0,
+                item1: 0,
+                item2: 0,
+                item3: 0,
+                item0_s: 0,
+                item1_s: 0,
+                item2_s: 0,
+                item3_s: 0
+            },
+
+            floor_5: {
+                item0: 0,
+                item1: 0,
+                item2: 0,
+                item3: 0,
+                item0_s: 0,
+                item1_s: 0,
+                item2_s: 0,
+                item3_s: 0
+            },
+
+            floor_6: {
+                item0: 0,
+                item1: 0,
+                item2: 0,
+                item3: 0,
+                item0_s: 0,
+                item1_s: 0,
+                item2_s: 0,
+                item3_s: 0
+            },
+
+            floor_7: {
+                item0: 0,
+                item1: 0,
+                item2: 0,
+                item3: 0,
+                item0_s: 0,
+                item1_s: 0,
+                item2_s: 0,
+                item3_s: 0
+            },
+
+            floor_8: {
+                item0: 0,
+                item1: 0,
+                item2: 0,
+                item3: 0,
+                item0_s: 0,
+                item1_s: 0,
+                item2_s: 0,
+                item3_s: 0
+            },
+
+            floor_9: {
+                item0: 0,
+                item1: 0,
+                item2: 0,
+                item3: 0,
+                item0_s: 0,
+                item1_s: 0,
+                item2_s: 0,
+                item3_s: 0
+            },
+
+            floor_10: {
+                item0: 0,
+                item1: 0,
+                item2: 0,
+                item3: 0,
+                item0_s: 0,
+                item1_s: 0,
+                item2_s: 0,
+                item3_s: 0
+            },
+
+            floor_11: {
+                item0: 0,
+                item1: 0,
+                item2: 0,
+                item3: 0,
+                item0_s: 0,
+                item1_s: 0,
+                item2_s: 0,
+                item3_s: 0
+            },
+
+            floor_boss: {
+                item0: 0,
+                item1: 0,
+                item2: 0,
+                item3: 0,
+                item0_s: 0,
+                item1_s: 0,
+                item2_s: 0,
+                item3_s: 0
+            }
+        };
 
         var obj_types_id = [0,1,2];
         var obj_types_names_id = ["Nothing", "Chest", "Bag"];
 
+        var sce_room_id = [0,1,2];
+        var sce_room_id_n = ["Starting Room","Boss Room","Room type 1","Room type 2"]
+
         var obj_items_id = [0,1,2,3];
-        var obj_items_names_id = ["Nothing","Health Potion","Item","The Key"];
+        var obj_items_names_id = ["Nothing","Item","Weapon","Utility","Special!"];
         var obj_items_perks_n = [0,2,1,2];
 
         var obj_weapon_id = [0,1,2,3];
@@ -49,17 +198,25 @@
             var x1 = document.getElementById("tower_size").value;
             var x2 = document.getElementById("difficulty").value;
 
-            alert(x1 + " " + x2);
-
             tot_floors = x1;
             gm_difficulty = x2;
 
-            game_manager();
+            document.getElementById("output").innerHTML = "Generating Scenario. Please Wait...";
+            //tower_generator
+            document.getElementById("tower_generator").disabled = true;
+            document.getElementById("tower_size").disabled = true;
+            document.getElementById("difficulty").disabled = true;
+            const myTimeout = setTimeout(game_manager, 5000);
         }
 
-        function game_manager() {
-            document.getElementById("output").innerHTML = "The Game Begins!";
+        function game_manager() {//the story manager
+                document.getElementById("output").innerHTML = "You awaken at the bottom of the pit you fell into. Dazed, and a little scuffed up you eventually come to. In front you find a ladder and a " + "'weapon'" + " looks like the only way is up...";
         }
+
+        function UI_Update() {
+
+        }
+
 
         /*Notes for project*/
 
@@ -83,13 +240,18 @@
         </script>
     </head>
     <body>
-        <h4>Simple Tower</h4>
-        Tower Size: <input type="number" id="tower_size" value="10" min="5" max="50"> (min 5 levels, max 50 levels!)
-        <br>
-        Difficulty: <input type="number" id="difficulty" value="2" min="1" max="3"> (lower the value the easier, higher the value the more difficult!)
-        <br>
-        <br>
-        <button onclick="start_game()">Generate</button>
+        <h1>Simple Tower</h1>
+
+        <div >
+            Tower Size: <input type="number" id="tower_size" value="10" min="5" max="12"> (min 5 levels, max 12 levels!)
+            <br>
+            Difficulty: <input type="number" id="difficulty" value="2" min="1" max="3"> (lower the value the easier, higher the value the more difficult!)
+            <br>
+            <br>
+            <button id="tower_generator" onclick="start_game()">Generate</button>
+        </div>
+        <h4 id="score">Score: 0</h4>
+        <p id="floor">Floor: 0</p>
         <p id="output">text output goes here...</p>
         <button>Up</button>
         <button>Down</button>

@@ -10,169 +10,31 @@
         var encounter_chance = 1;
         var gm_difficulty = 2;
         var gm_difficulty_n = ["Easy","Normal","Hard"];
-        var gm_tower_map = [0,2,2,2,2,2,2,2,2,2,2,1];
+        var gm_story_tracker_prog = 0;
+        var gm_tower_map = [];
         
-        var gm_tower_objects = {
-            floor_starting: {
-                item0: 0,
-                item1: 0,
-                item2: 0,
-                item3: 0,
-                item0_s: 0,
-                item1_s: 0,
-                item2_s: 0,
-                item3_s: 0
-            },
-
-            floor_1: {
-                item0: 0,
-                item1: 0,
-                item2: 0,
-                item3: 0,
-                item0_s: 0,
-                item1_s: 0,
-                item2_s: 0,
-                item3_s: 0
-            },
-
-            floor_2: {
-                item0: 0,
-                item1: 0,
-                item2: 0,
-                item3: 0,
-                item0_s: 0,
-                item1_s: 0,
-                item2_s: 0,
-                item3_s: 0
-            },
-
-            floor_3: {
-                item0: 0,
-                item1: 0,
-                item2: 0,
-                item3: 0,
-                item0_s: 0,
-                item1_s: 0,
-                item2_s: 0,
-                item3_s: 0
-            },
-
-            floor_4: {
-                item0: 0,
-                item1: 0,
-                item2: 0,
-                item3: 0,
-                item0_s: 0,
-                item1_s: 0,
-                item2_s: 0,
-                item3_s: 0
-            },
-
-            floor_5: {
-                item0: 0,
-                item1: 0,
-                item2: 0,
-                item3: 0,
-                item0_s: 0,
-                item1_s: 0,
-                item2_s: 0,
-                item3_s: 0
-            },
-
-            floor_6: {
-                item0: 0,
-                item1: 0,
-                item2: 0,
-                item3: 0,
-                item0_s: 0,
-                item1_s: 0,
-                item2_s: 0,
-                item3_s: 0
-            },
-
-            floor_7: {
-                item0: 0,
-                item1: 0,
-                item2: 0,
-                item3: 0,
-                item0_s: 0,
-                item1_s: 0,
-                item2_s: 0,
-                item3_s: 0
-            },
-
-            floor_8: {
-                item0: 0,
-                item1: 0,
-                item2: 0,
-                item3: 0,
-                item0_s: 0,
-                item1_s: 0,
-                item2_s: 0,
-                item3_s: 0
-            },
-
-            floor_9: {
-                item0: 0,
-                item1: 0,
-                item2: 0,
-                item3: 0,
-                item0_s: 0,
-                item1_s: 0,
-                item2_s: 0,
-                item3_s: 0
-            },
-
-            floor_10: {
-                item0: 0,
-                item1: 0,
-                item2: 0,
-                item3: 0,
-                item0_s: 0,
-                item1_s: 0,
-                item2_s: 0,
-                item3_s: 0
-            },
-
-            floor_11: {
-                item0: 0,
-                item1: 0,
-                item2: 0,
-                item3: 0,
-                item0_s: 0,
-                item1_s: 0,
-                item2_s: 0,
-                item3_s: 0
-            },
-
-            floor_boss: {
-                item0: 0,
-                item1: 0,
-                item2: 0,
-                item3: 0,
-                item0_s: 0,
-                item1_s: 0,
-                item2_s: 0,
-                item3_s: 0
-            }
-        };
+        var gm_tower_obj_0 = [];
+        var gm_tower_obj_1 = [];
+        var gm_tower_obj_2 = [];
+        var gm_tower_obj_3 = [];
 
         var obj_types_id = [0,1,2];
         var obj_types_names_id = ["Nothing", "Chest", "Bag"];
+        var obj_type_noise_f = [0,2,1];
 
-        var sce_room_id = [0,1,2];
-        var sce_room_id_n = ["Starting Room","Boss Room","Room type 1","Room type 2"]
+        var sce_room_id = [1,2];
+        var sce_room_id_n = ["Room type 1","Room type 2"]
 
         var obj_items_id = [0,1,2,3];
         var obj_items_names_id = ["Nothing","Item","Weapon","Utility","Special!"];
         var obj_items_perks_n = [0,2,1,2];
 
-        var obj_weapon_id = [0,1,2,3];
-        var obj_weapon_name_id = ["Nothing","Sword","Axe","Club"];
+        var obj_weapon_id = [1,2,3];
+        var obj_weapon_name_id = ["Sword","Axe","Club"];
         var obj_weapon_damage_n = [0,4,3,2];
 
-        var ent_enemies_id = [0,1,2,3,4];
-        var ent_enemies_name_id = ["Nothing","Ghost","Snake","Glarb","Serpant"];
+        var ent_enemies_id = [1,2,3,4];
+        var ent_enemies_name_id = ["Ghost","Snake","Glarb","Serpant"];
         var ent_enemies_damage_n = [0,2,1,3,4];
         var ent_enemies_health_n = [0,4,2,6,8];
 
@@ -206,17 +68,72 @@
             document.getElementById("tower_generator").disabled = true;
             document.getElementById("tower_size").disabled = true;
             document.getElementById("difficulty").disabled = true;
-            const myTimeout = setTimeout(game_manager, 5000);
+            //const myTimeout = setTimeout(Game_Manager, 5000);
+            Generate_Tower();
         }
 
-        function game_manager() {//the story manager
-                document.getElementById("output").innerHTML = "You awaken at the bottom of the pit you fell into. Dazed, and a little scuffed up you eventually come to. In front you find a ladder and a " + "'weapon'" + " looks like the only way is up...";
+        function Game_Manager() {//the story manager
+            if(gm_story_tracker_prog == 0) {
+                /*You start your adventure. this will be a basic story tracker feature....*/
+                document.getElementById("output").innerHTML = "You awaken at the bottom of the pit you fell into. Dazed, and a little scuffed up you eventually come to. In front you find a ladder and a " + player.cur_weapon + " looks like the only way is up...";
+            }
         }
 
-        function UI_Update() {
+        function Generate_Tower() {
+            for (var i = 0; i < tot_floors; i++) {
+                /*Getting Floor Needing to generate*/
+                    
+                /*Roll Room Type Starts*/
+                
+                //roll the room type from scene room ids...
+                var xx1 = Math.floor((Math.random() * sce_room_id.length));
+                //push to array
+                gm_tower_map.push(sce_room_id[xx1]);
 
+                /*Roll Room Type Ends (SuPeR bAsIc!)*/
+
+                /*Roll for Item Types Starts! (oooooooo!)*/
+                
+                /*Roll Item 1 type*/
+                var xx2 = Math.floor((Math.random() * obj_types_id.length));
+                gm_tower_obj_0.push(obj_types_names_id[xx2]);
+                 
+                /*Roll Item 2 type*/
+                var xx3 = Math.floor((Math.random() * obj_types_id.length));
+                gm_tower_obj_1.push(obj_types_names_id[xx3]);
+
+                /*Roll Item 3 type*/
+                var xx4 = Math.floor((Math.random() * obj_types_id.length));
+                gm_tower_obj_2.push(obj_types_names_id[xx4]);
+
+                /*Roll Item 4 type*/
+                var xx5 = Math.floor((Math.random() * obj_types_id.length));
+                gm_tower_obj_3.push(obj_types_names_id[xx5]);
+
+                /*Roll for Item Types Ends!*/
+                
+            }
+
+            /*Once Finished, change the starting room to 0 to trigger that room and the final floor to b for boss....*/
+            gm_tower_map[0] = 0;
+            gm_tower_obj_0[0] = obj_types_names_id[0];
+            gm_tower_obj_1[0] = obj_types_names_id[0];
+            gm_tower_obj_2[0] = obj_types_names_id[0];
+            gm_tower_obj_3[0] = obj_types_names_id[0];
+            gm_tower_map[tot_floors] = 'b';
+            gm_tower_obj_0[tot_floors] = obj_types_names_id[0];
+            gm_tower_obj_1[tot_floors] = obj_types_names_id[0];
+            gm_tower_obj_2[tot_floors] = obj_types_names_id[0];
+            gm_tower_obj_3[tot_floors] = obj_types_names_id[0];
+
+            /*After it overrides everything, we will focus on what the player gets for a weapon as well...*/
+            var yy1 = Math.floor((Math.random() * obj_weapon_id.length));
+            player.cur_weapon = obj_weapon_name_id[yy1];
+
+            /*Finally, we will exit this routine and jump into the game manager and tell it to give output and to Load the UI.*/
+            gm_story_tracker_prog = 0;
+            Game_Manager();
         }
-
 
         /*Notes for project*/
 
@@ -252,6 +169,7 @@
         </div>
         <h4 id="score">Score: 0</h4>
         <p id="floor">Floor: 0</p>
+        <p># @ X X X X</p>
         <p id="output">text output goes here...</p>
         <button>Up</button>
         <button>Down</button>

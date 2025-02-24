@@ -77,6 +77,26 @@
                 /*You start your adventure. this will be a basic story tracker feature....*/
                 document.getElementById("output").innerHTML = "You awaken at the bottom of the pit you fell into. Dazed, and a little scuffed up you eventually come to. In front you find a ladder and a " + player.cur_weapon + " looks like the only way is up...";
             }
+
+            if(gm_story_tracker_prog == 1) {
+                /*You have found the key to progress to the final boss room*/
+                document.getElementById("output").innerHTML = "As you go through the " + "compartment name" + ", you discover a mystical glowing key shimmering with power. Whereever this key leads to must be hiding something extremely valuable..."
+            }
+
+            if(gm_story_tracker_prog == 2) {
+                /*You enter the final room and find the boss*/
+                document.getElementById("output").innerHTML = "";
+            }
+
+            if(gm_story_tracker_prog == 3) {
+                /*You defeat the final boss and discover the exit out*/
+                document.getElementById("output").innerHTML = "";
+            }
+
+            if(gm_story_tracker_prog == 4) {
+                /*You are defeated you lose the game!*/
+                document.getElementById("output").innerHTML = "";
+            }
         }
 
         function Generate_Tower() {
@@ -133,6 +153,36 @@
             /*Finally, we will exit this routine and jump into the game manager and tell it to give output and to Load the UI.*/
             gm_story_tracker_prog = 0;
             Game_Manager();
+        }
+
+        function Game_Command(com) {
+            if(com == 1) {
+                /*Up Command*/
+                if(cur_floor != (tot_floors - 1)) {
+                    cur_floor += 1;
+                } else {
+                    if(player.has_key == 1) {
+                        cur_floor += 1;
+                    } else {
+                        alert("you need to find the key to enter this floor!");
+                    }
+                }
+            }
+
+            if(com == 2) {
+                /*Down Command*/
+                if(cur_floor != 0) {
+                    cur_floor -= 1;
+                }
+            }
+
+            if(com == 3) {
+                /*Open Command*/
+            }
+
+            if(com == 4) {
+                /*Smash Command*/
+            }
         }
 
         /*Notes for project*/

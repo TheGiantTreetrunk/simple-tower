@@ -6,6 +6,7 @@
 
         var tot_floors = 10;
         var cur_floor = 0;
+        var cur_spot = 0;
         var encounter_meter = 10;
         var encounter_chance = 1;
         var gm_difficulty = 2;
@@ -17,6 +18,12 @@
         var gm_tower_obj_1 = [];
         var gm_tower_obj_2 = [];
         var gm_tower_obj_3 = [];
+
+        var gm_tower_obj_0_a = [];
+        var gm_tower_obj_1_a = [];
+        var gm_tower_obj_2_a = [];
+        var gm_tower_obj_3_a = [];
+
 
         var obj_types_id = [0,1,2];
         var obj_types_names_id = ["Nothing", "Chest", "Bag"];
@@ -35,8 +42,9 @@
 
         var ent_enemies_id = [1,2,3,4];
         var ent_enemies_name_id = ["Ghost","Snake","Glarb","Serpant"];
-        var ent_enemies_damage_n = [0,2,1,3,4];
-        var ent_enemies_health_n = [0,4,2,6,8];
+        var ent_enemies_damage_n = [2,1,3,4];
+        var ent_enemies_health_n = [4,2,6,8];
+        var ent_enemies_attack_s = [2,2,3,4];
 
         var player = {
             score: 0,
@@ -118,18 +126,22 @@
                 /*Roll Item 1 type*/
                 var xx2 = Math.floor((Math.random() * obj_types_id.length));
                 gm_tower_obj_0.push(obj_types_names_id[xx2]);
+                gm_tower_obj_0_a.push(0);
                  
                 /*Roll Item 2 type*/
                 var xx3 = Math.floor((Math.random() * obj_types_id.length));
                 gm_tower_obj_1.push(obj_types_names_id[xx3]);
+                gm_tower_obj_1_a.push(0);
 
                 /*Roll Item 3 type*/
                 var xx4 = Math.floor((Math.random() * obj_types_id.length));
                 gm_tower_obj_2.push(obj_types_names_id[xx4]);
+                gm_tower_obj_2_a.push(0);
 
                 /*Roll Item 4 type*/
                 var xx5 = Math.floor((Math.random() * obj_types_id.length));
                 gm_tower_obj_3.push(obj_types_names_id[xx5]);
+                gm_tower_obj_3_a.push(0);
 
                 /*Roll for Item Types Ends!*/
                 
@@ -189,8 +201,16 @@
         }
 
         function UI_Load_Map() {
+
             document.getElementById("floor").innerHTML = "Floor: " + cur_floor;
-            document.getElementById("floor_map").innerHTML = gm_tower_obj_0[cur_floor] + " " + gm_tower_obj_1[cur_floor] + " " + gm_tower_obj_2[cur_floor] + " " + gm_tower_obj_3[cur_floor] + " ";
+
+            if(cur_floor != 0 || cur_floor != tot_floors) {
+                document.getElementById("floor_map").innerHTML = gm_tower_obj_0[cur_floor] + " " + gm_tower_obj_1[cur_floor] + " " + gm_tower_obj_2[cur_floor] + " " + gm_tower_obj_3[cur_floor] + " ";
+            } 
+
+            if(cur_floor == 0 || cur_floor == tot_floors) {
+                document.getElementById("floor_map").innerHTML = "";
+            }
         }
 
         /*Notes for project*/
@@ -231,7 +251,15 @@
         <p id="output">text output goes here...</p>
         <button onclick="Game_Command(1)">Up</button>
         <button onclick="Game_Command(2)">Down</button>
+
+        <button>Left</button>
+        <button>Right</button>
+
+
         <button>Open</button>
         <button>Smash</button>
+        <br>
+        <br>
+        <audio controls autoplay loop src="data:audio/ogg;base64,BASE64CODE" />
     </body>
 </html>

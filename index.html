@@ -5,7 +5,7 @@
         <script>
 
         var tot_floors = 10;
-        var cur_floor = 1;
+        var cur_floor = 0;
         var encounter_meter = 10;
         var encounter_chance = 1;
         var gm_difficulty = 2;
@@ -70,6 +70,7 @@
             document.getElementById("difficulty").disabled = true;
             //const myTimeout = setTimeout(Game_Manager, 5000);
             Generate_Tower();
+            UI_Load_Map();
         }
 
         function Game_Manager() {//the story manager
@@ -85,7 +86,7 @@
 
             if(gm_story_tracker_prog == 2) {
                 /*You enter the final room and find the boss*/
-                document.getElementById("output").innerHTML = "";
+                document.getElementById("output").innerHTML = "As you bring the key to the lock it begins to glow. You insert the key and hear the mechanisim release allowing you to open the door with ease. In front of you is a throne with someone occupying it. They proceed to grab their weapon and charge you.";
             }
 
             if(gm_story_tracker_prog == 3) {
@@ -183,6 +184,13 @@
             if(com == 4) {
                 /*Smash Command*/
             }
+
+            UI_Load_Map();
+        }
+
+        function UI_Load_Map() {
+            document.getElementById("floor").innerHTML = "Floor: " + cur_floor;
+            document.getElementById("floor_map").innerHTML = gm_tower_obj_0[cur_floor] + " " + gm_tower_obj_1[cur_floor] + " " + gm_tower_obj_2[cur_floor] + " " + gm_tower_obj_3[cur_floor] + " ";
         }
 
         /*Notes for project*/
@@ -219,10 +227,10 @@
         </div>
         <h4 id="score">Score: 0</h4>
         <p id="floor">Floor: 0</p>
-        <p># @ X X X X</p>
+        <p id="floor_map"># @ X X X X</p>
         <p id="output">text output goes here...</p>
-        <button>Up</button>
-        <button>Down</button>
+        <button onclick="Game_Command(1)">Up</button>
+        <button onclick="Game_Command(2)">Down</button>
         <button>Open</button>
         <button>Smash</button>
     </body>

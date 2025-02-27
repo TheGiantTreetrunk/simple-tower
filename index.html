@@ -263,22 +263,22 @@
                 document.getElementById("spot3").src = blank;
                 document.getElementById("spot4").src = blank;
 
-            if(cur_spot == 0) {
-                document.getElementById("spot0").src = char1;
-            }
-            if(cur_spot == 1) {
-                document.getElementById("spot1").src = char1;
-            }
-            if(cur_spot == 2) {
-                document.getElementById("spot2").src = char1;
-            }
-            if(cur_spot == 3) {
-                document.getElementById("spot3").src = char1;
-            }
+                if(cur_spot == 0) {
+                    document.getElementById("spot0").src = char1;
+                }
+                if(cur_spot == 1) {
+                    document.getElementById("spot1").src = char1;
+                }
+                if(cur_spot == 2) {
+                    document.getElementById("spot2").src = char1;
+                }
+                if(cur_spot == 3) {
+                    document.getElementById("spot3").src = char1;
+                }
 
-            if(cur_spot == 4) {
-                document.getElementById("spot4").src = char1;
-            }
+                if(cur_spot == 4) {
+                    document.getElementById("spot4").src = char1;
+                }
             } 
 
             if(cur_floor == 0 || cur_floor == tot_floors) {
@@ -306,6 +306,15 @@
                 /*Player has smashed something*/
                 
             }
+        }
+
+
+        function keydownFunction() {
+            //document.getElementById("demo").style.backgroundColor = "red";
+        }
+
+        function keyupFunction() {
+            //document.getElementById("demo").style.backgroundColor = "green";
         }
 
         /*Notes for project*/
@@ -339,7 +348,7 @@
             }
         </style>
     </head>
-    <body>
+    <body onkeydown="keydownFunction()" onkeyup="keyupFunction()">
         <h1>Simple Tower</h1>
 
         <div >

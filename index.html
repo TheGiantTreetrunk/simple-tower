@@ -7,7 +7,7 @@
         var tot_floors = 10;
         var cur_floor = 0;
         var cur_spot = 0;
-        var encounter_meter = 10;
+        var encounter_meter = 20;
         var encounter_chance = 1;
         var gm_difficulty = 2;
         var gm_difficulty_n = ["Easy","Normal","Hard"];
@@ -48,6 +48,7 @@
         var char1 = "data:image/png;base64, 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dHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIKICAgIHhtbG5zOkdJTVA9Imh0dHA6Ly93d3cuZ2ltcC5vcmcveG1wLyIKICAgIHhtbG5zOnRpZmY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vdGlmZi8xLjAvIgogICAgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIgogICB4bXBNTTpEb2N1bWVudElEPSJnaW1wOmRvY2lkOmdpbXA6MTJiOTc4MzMtZjRiOS00OWIwLThlNDMtM2QwMGRlZjk3OTkyIgogICB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjU0Y2VkNzBkLTI1YjYtNGZlYS04MzA0LTg2NzdjYjZjNDgxNCIKICAgeG1wTU06T3JpZ2luYWxEb2N1bWVudElEPSJ4bXAuZGlkOjRlYzlkYWQ0LTRjYjItNDcyMy04NzY4LTkzNmUyYTM5OWYwYSIKICAgZGM6Rm9ybWF0PSJpbWFnZS9wbmciCiAgIEdJTVA6QVBJPSIyLjAiCiAgIEdJTVA6UGxhdGZvcm09IldpbmRvd3MiCiAgIEdJTVA6VGltZVN0YW1wPSIxNzE0MzQ0MjUzNTUzNTY4IgogICBHSU1QOlZlcnNpb249IjIuMTAuMzQiCiAgIHRpZmY6T3JpZW50YXRpb249IjEiCiAgIHhtcDpDcmVhdG9yVG9vbD0iR0lNUCAyLjEwIgogICB4bXA6TWV0YWRhdGFEYXRlPSIyMDI0OjA0OjI4VDE1OjQ0OjEzLTA3OjAwIgogICB4bXA6TW9kaWZ5RGF0ZT0iMjAyNDowNDoyOFQxNTo0NDoxMy0wNzowMCI+CiAgIDx4bXBNTTpIaXN0b3J5PgogICAgPHJkZjpTZXE+CiAgICAgPHJkZjpsaQogICAgICBzdEV2dDphY3Rpb249InNhdmVkIgogICAgICBzdEV2dDpjaGFuZ2VkPSIvIgogICAgICBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjg1Y2RiYzA4LTg2ZDctNGRjZS04NGMyLTlhMDhmNGZjM2ZhOCIKICAgICAgc3RFdnQ6c29mdHdhcmVBZ2VudD0iR2ltcCAyLjEwIChXaW5kb3dzKSIKICAgICAgc3RFdnQ6d2hlbj0iMjAyMy0wNC0wOVQxNDowNToxOCIvPgogICAgIDxyZGY6bGkKICAgICAgc3RFdnQ6YWN0aW9uPSJzYXZlZCIKICAgICAgc3RFdnQ6Y2hhbmdlZD0iLyIKICAgICAgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDowMWRhZGQwZC0wNzM2LTRmM2YtOTY2YS0wM2EyMmMxZDU5ODgiCiAgICAgIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkdpbXAgMi4xMCAoV2luZG93cykiCiAgICAgIHN0RXZ0OndoZW49IjIwMjMtMDQtMDlUMTU6MDc6NTYiLz4KICAgICA8cmRmOmxpCiAgICAgIHN0RXZ0OmFjdGlvbj0ic2F2ZWQiCiAgICAgIHN0RXZ0OmNoYW5nZWQ9Ii8iCiAgICAgIHN0RXZ0Omluc3RhbmNlSUQ9InhtcC5paWQ6MjY0ZGU4OGUtYWU4ZC00MTFjLThjMzMtY2M1Y2FlODcxNzQ2IgogICAgICBzdEV2dDpzb2Z0d2FyZUFnZW50PSJHaW1wIDIuMTAgKFdpbmRvd3MpIgogICAgICBzdEV2dDp3aGVuPSIyMDI0LTA0LTI4VDExOjA0OjIyIi8+CiAgICAgPHJkZjpsaQogICAgICBzdEV2dDphY3Rpb249InNhdmVkIgogICAgICBzdEV2dDpjaGFuZ2VkPSIvIgogICAgICBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOmNmNzIzNzI1LTY1MDAtNDI5MC05YTk1LThmMThlZWUzMjE5YSIKICAgICAgc3RFdnQ6c29mdHdhcmVBZ2VudD0iR2ltcCAyLjEwIChXaW5kb3dzKSIKICAgICAgc3RFdnQ6d2hlbj0iMjAyNC0wNC0yOFQxNTo0NDoxMyIvPgogICAgPC9yZGY6U2VxPgogICA8L3htcE1NOkhpc3Rvcnk+CiAgPC9yZGY6RGVzY3JpcHRpb24+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgCjw/eHBhY2tldCBlbmQ9InciPz7DevsIAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAB3RJTUUH6AQcFiwNhqe1eQAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAA6SURBVBjTjY9BDgAgDMKK//8znrapcUYukDQsQ5TMLgGMpC6+ZjXt5CNgtA4PZt8csB7n/36gmZl5AnYAJ+TxnGeOAAAAAElFTkSuQmCC";
         var blank = "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV9TpSIVkXYQdchQnSyIijhqFYpQIdQKrTqYXPohNGlIUlwcBdeCgx+LVQcXZ10dXAVB8APEXXBSdJES/5cUWsR4cNyPd/ced+8AoV5mmtUxBmi6baaTCTGbWxFDrxAwiD6EEJGZZcxKUgq+4+seAb7exXmW/7k/R4+atxgQEIlnmGHaxOvEU5u2wXmfOMpKskp8Tjxq0gWJH7muePzGueiywDOjZiY9RxwlFottrLQxK5ka8SRxTNV0yheyHquctzhr5Spr3pO/MJzXl5e4TnMISSxgERJEKKhiA2XYiNOqk2IhTfsJH/+A65fIpZBrA4wc86hAg+z6wf/gd7dWYWLcSwongM4Xx/kYBkK7QKPmON/HjtM4AYLPwJXe8lfqwPQn6bWWFjsCereBi+uWpuwBlztA/5Mhm7IrBWkKhQLwfkbflAMit0D3qtdbcx+nD0CGukrdAAeHwEiRstd83t3V3tu/Z5r9/QAq7nKKq0fHOAAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAAuIwAALiMBeKU/dgAAAAd0SU1FB+kCGxEHNHNWyCEAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAAIElEQVRYw+3OMQEAAAjAoNk/tMbwgQQUAAAA8Gyq/QwcjSQBAcTwXHEAAAAASUVORK5CYII=";
         var isdevmode = 0;
+        var isinbattle = 0;
         var player = {
             score: 0,
             max_health: 10,
@@ -81,6 +82,7 @@
             //const myTimeout = setTimeout(Game_Manager, 5000);
             Generate_Tower();
             UI_Load_Map();
+            UIX(1);
         }
 
         function Game_Manager() {//the story manager
@@ -213,38 +215,62 @@
                 /*Open Command*/
                 if(cur_spot != 0) {
                     if(cur_spot == 1) {
+                        if(gm_tower_obj_0[cur_floor] != "Nothing") {
                         gm_tower_obj_0_a[cur_floor] = 1;
+                        Encounter_Meter(1);
+                        }
                     }
                     if(cur_spot == 2) {
+                        if(gm_tower_obj_1[cur_floor] != "Nothing") {
                         gm_tower_obj_1_a[cur_floor] = 1;
+                        Encounter_Meter(1);
+                        }
                     }
                     if(cur_spot == 3) {
+                        if(gm_tower_obj_2[cur_floor] != "Nothing") {
                         gm_tower_obj_2_a[cur_floor] = 1;
+                        Encounter_Meter(1);
+                        }
                     }
                     if(cur_spot == 4) {
+                        if(gm_tower_obj_3[cur_floor] != "Nothing") {
                         gm_tower_obj_3_a[cur_floor] = 1;
+                        Encounter_Meter(1);
+                        }
                     }
                 }
-                GM_Disturb(0);
+                //GM_Disturb(0);
             }
 
             if(com == 6) {
                 /*Smash Command*/
                 if(cur_spot != 0) {
                     if(cur_spot == 1) {
+                        if(gm_tower_obj_0[cur_floor] != "Nothing") {
                         gm_tower_obj_0_a[cur_floor] = 2;
+                        Encounter_Meter(2);
+                        }
                     }
                     if(cur_spot == 2) {
+                        if(gm_tower_obj_1[cur_floor] != "Nothing") {
                         gm_tower_obj_1_a[cur_floor] = 2;
+                        Encounter_Meter(2);
+                        }
                     }
                     if(cur_spot == 3) {
+                        if(gm_tower_obj_2[cur_floor] != "Nothing") {
                         gm_tower_obj_2_a[cur_floor] = 2;
+                        Encounter_Meter(2);
+                        }
                     }
                     if(cur_spot == 4) {
+                        if(gm_tower_obj_3[cur_floor] != "Nothing") {
                         gm_tower_obj_3_a[cur_floor] = 2;
+                        Encounter_Meter(2);
+                        }
                     }
                 }
-                GM_Disturb(1);
+                //GM_Disturb(1);
             }
 
             UI_Load_Map();
@@ -252,6 +278,7 @@
 
         function UI_Load_Map() {
 
+            document.getElementById("score").innerHTML = "Score: " + player.score;
             document.getElementById("floor").innerHTML = "Floor: " + cur_floor;
 
             if(cur_floor != 0 || cur_floor != tot_floors) {
@@ -297,14 +324,81 @@
 
         function GM_Disturb(dis) {
             /*The Player has either opened something or smashed it. How many dark elements heard it is the question...*/
-            if(dis == 0) {
+            if(dis == 1) {
                 /*Player has opened something*/
+                
 
+                    //Encounter_Meter(1);
             }
 
-            if(dis == 1) {
+            if(dis == 2) {
                 /*Player has smashed something*/
+                    
+
+                    //Encounter_Meter(2);
+            }
+        }
+
+        function Encounter_Meter(player_action) {
+
+            if(player_action == 1) {
+
+                if(gm_difficulty == 1) {
+                    encounter_chance += 1;
+                    player.score += 10;
+                }
+
+                if(gm_difficulty == 2) {
+                    encounter_chance += 2;
+                    player.score += 20;
+                }
+
+                if(gm_difficulty == 3) {
+                    encounter_chance += 3;
+                    player.score += 40;
+                }
+            }
+
+            if(player_action == 2) {
                 
+                if(gm_difficulty == 1) {
+                    encounter_chance += 2;
+                    player.score += 20;
+                }
+
+                if(gm_difficulty == 2) {
+                    encounter_chance += 4;
+                    player.score += 40;
+                }
+
+                if(gm_difficulty == 3) {
+                    encounter_chance += 6;
+                    player.score += 60;
+                }
+            }
+
+            UI_Load_Map();
+        }
+
+        function UIX(loadin) {
+            if(isdevmode == 0) {
+                if(loadin == 0) {
+                    document.getElementById("scene_tower_config").style.display = "block";
+                    document.getElementById("scene_level").style.display = "none";
+                    document.getElementById("scene_encounter").style.display = "none";
+                }
+
+                if(loadin == 1) {
+                    document.getElementById("scene_tower_config").style.display = "none";
+                    document.getElementById("scene_level").style.display = "block";
+                    document.getElementById("scene_encounter").style.display = "none";
+                }
+
+                if(loadin == 2) {
+                    document.getElementById("scene_tower_config").style.display = "none";
+                    document.getElementById("scene_level").style.display = "none";
+                    document.getElementById("scene_encounter").style.display = "block";
+                }
             }
         }
 
@@ -335,6 +429,11 @@
         Roguelike!
         - If you die you lose the game! always will be completely randomized. 
         - eventually will need to add 'themed' rooms with specific items but thats well down the line...
+
+
+        for adding music down the line add this to the html body section....
+
+        <audio controls autoplay loop src="data:audio/ogg;base64,BASE64CODE" />
         */
         </script>
 
@@ -348,10 +447,10 @@
             }
         </style>
     </head>
-    <body onkeydown="keydownFunction()" onkeyup="keyupFunction()">
+    <body onload="UIX(0)" onkeydown="keydownFunction()" onkeyup="keyupFunction()">
         <h1>Simple Tower</h1>
 
-        <div >
+        <div id="scene_tower_config">
             Tower Size: <input type="number" id="tower_size" value="10" min="5" max="12"> (min 5 levels, max 12 levels!)
             <br>
             Difficulty: <input type="number" id="difficulty" value="2" min="1" max="3"> (lower the value the easier, higher the value the more difficult!)
@@ -360,7 +459,7 @@
             <button id="tower_generator" onclick="start_game()">Generate</button>
         </div>
 
-        <div>
+        <div id="scene_level">
             <h4 id="score">Score: 0</h4>
             <p id="floor">Floor: 0</p>
             <p id="floor_map"># @ X X X X</p>
@@ -369,11 +468,11 @@
             <button id="com_dwn" onclick="Game_Command(2)">Down</button>
             <button id="com_lft" onclick="Game_Command(4)">Left</button>
             <button id="com_rht" onclick="Game_Command(3)">Right</button>
-            <button>Open</button>
-            <button>Smash</button>
+            <button onclick="Game_Command(5)">Open</button>
+            <button onclick="Game_Command(6)">Smash</button>
         </div>
 
-        <div>
+        <div id="scene_encounter">
             <h4>Encounter</h4>
             <p>A Ghost appears...</p>
             <br>
@@ -390,6 +489,5 @@
         
         <br>
         <br>
-        <audio controls autoplay loop src="data:audio/ogg;base64,BASE64CODE" />
     </body>
 </html>

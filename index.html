@@ -490,6 +490,13 @@
         </script>
 
         <style>
+            #map_scene {
+                width: 384px;
+                height: 128px;
+                border: 1px solid black;
+                box-shadow: 10px 10px;	
+            }
+
             img {
 				image-rendering: pixelated;
 			}
@@ -532,7 +539,9 @@
         <div id="scene_level">
             <h4 id="score">Score: 0</h4>
             <p id="floor">Floor: 0</p>
-            <p id="floor_map"># @ X X X X</p>
+            <div id="map_scene">
+                <p id="floor_map"># @ X X X X</p>
+            </div>
             <p id="output">text output goes here...</p>
             <button id="com_up" onclick="Game_Command(1)">Up</button>
             <button id="com_dwn" onclick="Game_Command(2)">Down</button>

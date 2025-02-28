@@ -405,6 +405,33 @@
 
         function keydownFunction() {
             //document.getElementById("demo").style.backgroundColor = "red";
+
+            let key = event.key;
+
+            if (key == "w" || key == "W") {
+                Game_Command(1);
+            }
+
+            if (key == "s" || key == "S") {
+                Game_Command(2);
+            }
+
+            if (key == "a" || key == "A") {
+                Game_Command(4);
+            }
+
+            if (key == "d" || key == "D") {
+                Game_Command(3);
+            }
+
+            if (key == "o" || key == "O") {
+                Game_Command(5);
+            }
+
+            if (key == "k" || key == "K") {
+                Game_Command(6);
+            }
+
         }
 
         function keyupFunction() {

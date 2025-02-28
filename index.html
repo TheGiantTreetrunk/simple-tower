@@ -282,7 +282,7 @@
             document.getElementById("floor").innerHTML = "Floor: " + cur_floor;
 
             if(cur_floor != 0 || cur_floor != tot_floors) {
-                document.getElementById("floor_map").innerHTML ="ladder" + "<img id='spot0' class='plyr_spot'> "+ "<img id='spot1' class='plyr_spot'>" + gm_tower_obj_0[cur_floor] + "<img id='spot2' class='plyr_spot'> " + gm_tower_obj_1[cur_floor] + "<img id='spot3' class='plyr_spot'> " + gm_tower_obj_2[cur_floor] + "<img id='spot4' class='plyr_spot'> " + gm_tower_obj_3[cur_floor] + " ";
+                document.getElementById("floor_map").innerHTML ="ladder" + "<img id='spot0' class='plyr_spot'> "+ "<img id='spot1' class='plyr_spot'>" + "<img class='" + gm_tower_obj_0[cur_floor] + "'>" + "<img id='spot2' class='plyr_spot'> " + "<img class='" + gm_tower_obj_1[cur_floor] + "'>"  + "<img id='spot3' class='plyr_spot'> " + "<img class='" + gm_tower_obj_2[cur_floor] + "'>"  + "<img id='spot4' class='plyr_spot'> " + "<img class='" + gm_tower_obj_3[cur_floor] + "'>"  + " ";
                 
                 document.getElementById("spot0").src = blank;
                 document.getElementById("spot1").src = blank;
@@ -319,6 +319,14 @@
                 document.getElementById("com_up").disabled = false;
                 document.getElementById("com_dwn").disabled = false;
             }
+
+
+            let xx6 = document.getElementsByClassName('Nothing');
+
+            for (let x=0 ; x < p.length ; x++ ) {
+                xx6[x].src = blank;
+            }
+
 
         }
 
@@ -461,6 +469,8 @@
         for adding music down the line add this to the html body section....
 
         <audio controls autoplay loop src="data:audio/ogg;base64,BASE64CODE" />
+
+        "Nothing", "Chest", "Bag"
         */
         </script>
 
@@ -471,6 +481,24 @@
             .plyr_spot {
                 width: 32px;
                 height: 32px;
+            }
+
+            .Nothing {
+                width: 32px;
+                height: 32px;
+                
+            }
+
+            .Chest{
+                width: 32px;
+                height: 32px;
+                background-color: blue;
+            }
+
+            .Bag {
+                width: 32px;
+                height: 32px;
+                background-color: green;
             }
         </style>
     </head>

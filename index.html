@@ -43,7 +43,8 @@
 
         var obj_weapon_id = [1,2,3];
         var obj_weapon_name_id = ["Sword","Axe","Club"];
-        var obj_weapon_damage_n = [0,4,3,2];
+        var obj_weapon_damage_n = [4,3,2];
+        var obj_weapon_damage_c = [2,2,1];
 
         var ent_enemies_id = [1,2,3,4];
         var ent_enemies_name_id = ["Ghost","Snake","Glarb","Serpant"];
@@ -293,7 +294,7 @@
             document.getElementById("floor").innerHTML = "Floor: " + cur_floor;
 
             if(cur_floor != 0 || cur_floor != tot_floors) {
-                document.getElementById("floor_map").innerHTML ="ladder" + "<img id='spot0' class='plyr_spot'> "+ "<img id='spot1' class='plyr_spot'>" + "<img class='" + gm_tower_obj_0[cur_floor] + "'>" + "<img id='spot2' class='plyr_spot'> " + "<img class='" + gm_tower_obj_1[cur_floor] + "'>"  + "<img id='spot3' class='plyr_spot'> " + "<img class='" + gm_tower_obj_2[cur_floor] + "'>"  + "<img id='spot4' class='plyr_spot'> " + "<img class='" + gm_tower_obj_3[cur_floor] + "'>"  + " ";
+                document.getElementById("floor_map").innerHTML = "<img id='spot0' class='plyr_spot'> "+ "<img id='spot1' class='plyr_spot'>" + "<img class='" + gm_tower_obj_0[cur_floor] + "'>" + "<img id='spot2' class='plyr_spot'> " + "<img class='" + gm_tower_obj_1[cur_floor] + "'>"  + "<img id='spot3' class='plyr_spot'> " + "<img class='" + gm_tower_obj_2[cur_floor] + "'>"  + "<img id='spot4' class='plyr_spot'> " + "<img class='" + gm_tower_obj_3[cur_floor] + "'>"  + " ";
                 
                 document.getElementById("spot0").src = blank;
                 document.getElementById("spot1").src = blank;
@@ -548,7 +549,7 @@
             #floor_map {
                 position: absolute;
                 bottom: 10px;
-                left: 16px;
+                left: 40px;
             }
 
             img {
@@ -558,6 +559,13 @@
                 width: 32px;
                 height: 32px;
                 z-index: 1;
+            }
+
+            .Ladder {
+                width: 32px;
+                height: 32px;
+                z-index: 1;
+                background-color: #000000;
             }
 
             .Nothing {

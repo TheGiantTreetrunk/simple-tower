@@ -1,7 +1,12 @@
 <html>
     <head>
         <title>Simple Tower</title>
-        <style></style>
+        <meta charset="utf-8">
+		<link rel="icon" type="image/x-icon" href="favicon.ico">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="HandheldFriendly" content="true"/>
+
         <script>
 
         var tot_floors = 10;
@@ -54,6 +59,7 @@
 
         var isdevmode = 0;
         var isinbattle = 0;
+
         var player = {
             score: 0,
             max_health: 10,
@@ -344,7 +350,7 @@
                 xx8[z].src = barrel1;
             }
 
-            document.getElementById("map_scene").style.background = room;
+            document.getElementById("bgimg").src = room;
         }
 
         function GM_Disturb(dis) {
@@ -403,6 +409,35 @@
             }
 
             UI_Load_Map();
+        }
+
+
+        function Encounter(modes) {
+            /*Structure of battle mode*/
+            /*
+            mode 0: the player has just triggered a battle
+                    - needs to pick who the player will be fighting based on enemy array length
+                    - grabs the health, damage roll number, and attack speed.
+                    - sets isinbattle to 1 
+                    - then calls mode 1
+                    
+
+            mode 1: the battle starts
+                    - does the player still have health?
+                        - if yes then do nothing
+                        - if no then its game over
+                    - does the enemy still have health
+                        -if yes then it will prepare a attack through a timeout
+                        -if no then it will clear the attack time out if it has one and reward the player points 
+                        -when battle is over isinbattle is turned back to 0.
+                        -load back the level and continue through the tower.
+
+            mode 2: listens to player attacks
+                    - checks ability player used
+                        -will either be a heal or an attack
+                        - if an attack then enemy loses health
+                            if its dead or less than 0 then battle is over.
+            */
         }
 
         function UIX(loadin) {
@@ -497,6 +532,23 @@
                 height: 128px;
                 border: 1px solid black;
                 box-shadow: 10px 10px;	
+                overflow: none;
+                position: relative; 
+            }
+
+            #bgimg {
+                width: 384px;
+                height: 128px;
+                z-index: 0;
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+
+            #floor_map {
+                position: absolute;
+                bottom: 10px;
+                left: 16px;
             }
 
             img {
@@ -505,24 +557,25 @@
             .plyr_spot {
                 width: 32px;
                 height: 32px;
+                z-index: 1;
             }
 
             .Nothing {
                 width: 32px;
                 height: 32px;
-                
+                z-index: 1;
             }
 
             .Chest{
                 width: 32px;
                 height: 32px;
-                
+                z-index: 1;
             }
 
             .Barrel {
                 width: 32px;
                 height: 32px;
-                
+                z-index: 1;
             }
         </style>
     </head>
@@ -542,6 +595,7 @@
             <h4 id="score">Score: 0</h4>
             <p id="floor">Floor: 0</p>
             <div id="map_scene">
+                <img id="bgimg">
                 <p id="floor_map"># @ X X X X</p>
             </div>
             <p id="output">text output goes here...</p>

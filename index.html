@@ -58,7 +58,7 @@
         var room = "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAYAAAACACAYAAAACsL4LAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw1AUhU9TS0UqDnYQ6RChOtlFRRxLFYtgobQVWnUweekfNGlIUlwcBdeCgz+LVQcXZ10dXAVB8AfEXXBSdJES70sKLWK88Hgf591zeO8+QGjVmGr2xQFVs4xMMiHmC6ti8BV++BBABGMSM/VUdjEHz/q6p16quxjP8u77swaVoskAn0gcZ7phEW8Qz25aOud94jCrSArxOfGkQRckfuS67PIb57LDAs8MG7nMPHGYWCz3sNzDrGKoxDPEUUXVKF/Iu6xw3uKs1hqsc0/+wlBRW8lynVYESSwhhTREyGigihosxGjXSDGRofOEh3/U8afJJZOrCkaOBdShQnL84H/we7ZmaXrKTQolgMCLbX+MA8FdoN207e9j226fAP5n4Err+ustYO6T9GZXix4BQ9vAxXVXk/eAyx1g5EmXDMmR/LSEUgl4P6NvKgDDt8DAmju3zjlOH4AczWr5Bjg4BCbKlL3u8e7+3rn929OZ3w9u23KlS3jTPAAAAAZiS0dEAAAAAAAA+UO7fwAAAAlwSFlzAAAuIwAALiMBeKU/dgAAAAd0SU1FB+kDAQUrBptbZ+gAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAC6ElEQVR42u3bsU4lUQxEwR7+/5+HdIWEyLDYU5UaJwS3Nc/qZ9u7b7zvu+d5Zm5ubm7+/80/BkCSAACIet73ff0bAIIBsH9uAD/9ZvTT39i3b9++/b+z7ycggCgBABDlBgBQDYDpAZibm5sn534CAogSAABRbgAA1QCYHoB9+/bt6wEA0CEAAKLcAACqATA9AHNzc/Pk3E9AAFECACDKDQCgGgDTA7Bv3759PQAAOgQAQJQbAEA1AKYHYG5ubp6c+wkIIEoAAES5AQBUA2B6APbt27evBwBAhwAAiHIDAKgGwI57AADZB1gPAIALAgCg+gXiBgAQDYAd9wDkD5B9gL+8hXoAAPwKAQBQ/QJxAwCIBsD0AABuHmA9AAAuCACA6heIGwBANACmBwBw8wDrAQBwQQAAVL9A3AAAogEwPQCAmwdYDwCACwIAoPoF4gYAEA2A6QEA3DzAegAAXBAAANUvEDcAgGgATA8A4OYB1gMA4IIAAKh+gbgBAEQDYHoAADcPsB4AABcEAED1C8QNACAaANMDALh5gPUAALggAACqXyBuAADRAJgeAMDNA6wHAMAFAQBQ/QJxAwCIBsD0AABuHmA9AAAuCACA6heIGwBANACmBwBw8wDrAQBwQQAAVL9A3AAAogEwPQCAmwdYDwCACwIAoPoF4gYAEA2A6QEA3DzAegAAXBAAANUvEDcAgGgATA8A4OYB1gMA4IIAAKh+gbgBAEQDYHoAADcPsB4AABcEAED1C8QNACAaADvuAZibm5ub38z9BAQQJQAAotwAAKoBsOMegH379u3b1wMA4BcJAIAoNwCAagBMD8Dc3Nw8OfcTEECUAACIcgMAqAbA9ADs27dvXw8AgA4BABDlBgBQDYDpAZibm5sn534CAogSAABRbgAA1QCYHoB9+/bt6wEA0CEAAKLcAACqATA9AHNzc/Pk3E9AAFECACDKDQCgGgDTA7Bv3759PQAAOgQAQJQbAEDUJ6d5OJYCivXLAAAAAElFTkSuQmCC";
 
 
-        var isdevmode = 0;
+        var isdevmode = 1;
         var isinbattle = 0;
 
         var player = {
@@ -585,6 +585,27 @@
                 height: 32px;
                 z-index: 1;
             }
+
+            #health {
+                width: 32px;
+                height: 32px;
+                border: 1px solid black;
+                background-color: blue;
+            }
+
+            #weapon {
+                width: 32px;
+                height: 32px;
+                border: 1px solid black;
+                background-color: green;
+            }
+
+            #armour {
+                width: 32px;
+                height: 32px;
+                border: 1px solid black;
+                background-color: red;
+            }
         </style>
     </head>
     <body onload="UIX(0)" onkeydown="keydownFunction()" onkeyup="keyupFunction()">
@@ -602,6 +623,11 @@
         <div id="scene_level">
             <h4 id="score">Score: 0</h4>
             <p id="floor">Floor: 0</p>
+            
+            <img id="health">
+            <img id="weapon">
+            <img id="armour">
+            
             <div id="map_scene">
                 <img id="bgimg">
                 <p id="floor_map"># @ X X X X</p>

@@ -85,8 +85,10 @@
         var enemy = {
             id: 0,
             health: 0,
-            damange: 0
-
+            damange: 0,
+            speed: 0,
+            cur_health: 0,
+            cur_armour: 0
         };
 
         function start_game() {
@@ -381,20 +383,17 @@
 
         }
 
-        function GM_Disturb(dis) {
+        function GM_Disturb() {
             /*The Player has either opened something or smashed it. How many dark elements heard it is the question...*/
-            if(dis == 1) {
-                /*Player has opened something*/
-                
-
-                    //Encounter_Meter(1);
+            xx10 = Math.floor((Math.random() * encounter_meter));
+            if(xx10 < encounter_chance) {
+                alert("battle");
+                //load the fucking battle
+                UIX(2);
             }
 
-            if(dis == 2) {
-                /*Player has smashed something*/
-                    
-
-                    //Encounter_Meter(2);
+            if(xx10 >= encounter_chance) {
+                UI_Load_Map();
             }
         }
 
@@ -435,8 +434,8 @@
                     player.score += 60;
                 }
             }
-
-            UI_Load_Map();
+            GM_Disturb();
+            //UI_Load_Map();
         }
 
 
@@ -444,17 +443,8 @@
 
             /*Structure of battle mode*/
             /*
-            mode 0: the player has just triggered a battle
-                    - needs to pick who the player will be fighting based on enemy array length
-                    - grabs the health, damage roll number, and attack speed.
-                    - sets isinbattle to 1 
-                    - then calls mode 1
+             mode 1: the battle starts
                     
-
-            mode 1: the battle starts
-                    - does the player still have health?
-                        - if yes then do nothing
-                        - if no then its game over
                     - does the enemy still have health
                         -if yes then it will prepare a attack through a timeout
                         -if no then it will clear the attack time out if it has one and reward the player points 
@@ -466,10 +456,69 @@
                         -will either be a heal or an attack
                         - if an attack then enemy loses health
                             if its dead or less than 0 then battle is over.
+
+                    var player = {
+                        score: 0,
+                        max_health: 10,
+                        cur_health: 10,
+                        max_armour: 10,
+                        cur_armour: 0,
+                        cur_weapon: 0,
+                        has_armour: 0,
+                        has_key: 0
+
+                    };
+
+                    var enemy = {
+                        id: 0,
+                        health: 0,
+                        damange: 0
+                        cur_health
+                        cur_armour
+                    };
             */
         
             if(modes == 0) {
-                var xx9 = Math.floor((Math.random() * obj_types_id.length));
+                var xx11 = Math.floor((Math.random() * ent_enemies_id.length));
+
+                enemy.id = ent_enemies_name_id[xx11];
+                enemy.health = ent_enemies_health_n[xx11];
+                enemy.damange = ent_enemies_damage_n[xx11];
+                enemy.speed = ent_enemies_attack_s[xx11];
+                enemy.cur_health = ent_enemies_health_n[xx11];
+                isinbattle = 1;
+                Encounter(1);
+            }
+
+            if(modes == 1) {
+
+                if(player.cur_health <= 0) {
+                    //game over...
+                    alert("game over! you lose the game!!!!!");
+                    isinbattle = 0;
+                    UIX(0);
+                }
+
+                if(enemy.cur_health > 0) {
+                    //it will attack
+                }
+
+                if(enemy.cur_health <= 0) {
+                    //the enemy is dead...
+
+                    alert("you defeated the enemy! round won!!!");
+                    isinbattle = 0;
+                    UI_Load_Map();
+                    UIX(1);
+                }
+            }
+
+            if(modes == 2) {
+                //the player attacks and makes moves...
+            }
+
+            if(modes == 3) {
+                //the enemy attacks and makes moves...
             }
         
         }

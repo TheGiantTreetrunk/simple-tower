@@ -441,6 +441,7 @@
 
 
         function Encounter(modes) {
+
             /*Structure of battle mode*/
             /*
             mode 0: the player has just triggered a battle
@@ -466,7 +467,13 @@
                         - if an attack then enemy loses health
                             if its dead or less than 0 then battle is over.
             */
+        
+            if(modes == 0) {
+                var xx9 = Math.floor((Math.random() * obj_types_id.length));
+            }
+        
         }
+
 
         function UIX(loadin) {
             if(isdevmode == 0) {

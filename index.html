@@ -53,7 +53,7 @@
         var ent_enemies_attack_s = [2,2,3,4];
 
         var ent_boss_id = [1,2,3,4];
-        var ent_boss_name_id = ["Rakoll, The Baron","Muletta, The Juggernaut","Rufri, The Deprived Priest,","Ilpotta, The Souless Eater"];
+        var ent_boss_name_id = ["Rakoll, Dishonoured  Baron","Muletta, The Juggernaut","Rufri, Deprived Priest,","Ilpotta, Underworld Souless Eater"];
         var ent_boss_damage_n = [2,1,3,4];
         var ent_boss_health_n = [4,2,6,8];
         var ent_boss_attack_s = [2,2,3,4];
@@ -401,6 +401,7 @@
             if(xx10 < encounter_chance) {
                 alert("battle");
                 //load the fucking battle
+                encounter_chance = 0;
                 UIX(2);
             }
 

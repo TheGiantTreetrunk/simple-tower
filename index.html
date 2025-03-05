@@ -73,7 +73,7 @@
         var room = "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAYAAAACACAYAAAACsL4LAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw1AUhU9TS0UqDnYQ6RChOtlFRRxLFYtgobQVWnUweekfNGlIUlwcBdeCgz+LVQcXZ10dXAVB8AfEXXBSdJES70sKLWK88Hgf591zeO8+QGjVmGr2xQFVs4xMMiHmC6ti8BV++BBABGMSM/VUdjEHz/q6p16quxjP8u77swaVoskAn0gcZ7phEW8Qz25aOud94jCrSArxOfGkQRckfuS67PIb57LDAs8MG7nMPHGYWCz3sNzDrGKoxDPEUUXVKF/Iu6xw3uKs1hqsc0/+wlBRW8lynVYESSwhhTREyGigihosxGjXSDGRofOEh3/U8afJJZOrCkaOBdShQnL84H/we7ZmaXrKTQolgMCLbX+MA8FdoN207e9j226fAP5n4Err+ustYO6T9GZXix4BQ9vAxXVXk/eAyx1g5EmXDMmR/LSEUgl4P6NvKgDDt8DAmju3zjlOH4AczWr5Bjg4BCbKlL3u8e7+3rn929OZ3w9u23KlS3jTPAAAAAZiS0dEAAAAAAAA+UO7fwAAAAlwSFlzAAAuIwAALiMBeKU/dgAAAAd0SU1FB+kDAQUrBptbZ+gAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAC6ElEQVR42u3bsU4lUQxEwR7+/5+HdIWEyLDYU5UaJwS3Nc/qZ9u7b7zvu+d5Zm5ubm7+/80/BkCSAACIet73ff0bAIIBsH9uAD/9ZvTT39i3b9++/b+z7ycggCgBABDlBgBQDYDpAZibm5sn534CAogSAABRbgAA1QCYHoB9+/bt6wEA0CEAAKLcAACqATA9AHNzc/Pk3E9AAFECACDKDQCgGgDTA7Bv3759PQAAOgQAQJQbAEA1AKYHYG5ubp6c+wkIIEoAAES5AQBUA2B6APbt27evBwBAhwAAiHIDAKgGwI57AADZB1gPAIALAgCg+gXiBgAQDYAd9wDkD5B9gL+8hXoAAPwKAQBQ/QJxAwCIBsD0AABuHmA9AAAuCACA6heIGwBANACmBwBw8wDrAQBwQQAAVL9A3AAAogEwPQCAmwdYDwCACwIAoPoF4gYAEA2A6QEA3DzAegAAXBAAANUvEDcAgGgATA8A4OYB1gMA4IIAAKh+gbgBAEQDYHoAADcPsB4AABcEAED1C8QNACAaANMDALh5gPUAALggAACqXyBuAADRAJgeAMDNA6wHAMAFAQBQ/QJxAwCIBsD0AABuHmA9AAAuCACA6heIGwBANACmBwBw8wDrAQBwQQAAVL9A3AAAogEwPQCAmwdYDwCACwIAoPoF4gYAEA2A6QEA3DzAegAAXBAAANUvEDcAgGgATA8A4OYB1gMA4IIAAKh+gbgBAEQDYHoAADcPsB4AABcEAED1C8QNACAaADvuAZibm5ub38z9BAQQJQAAotwAAKoBsOMegH379u3b1wMA4BcJAIAoNwCAagBMD8Dc3Nw8OfcTEECUAACIcgMAqAbA9ADs27dvXw8AgA4BABDlBgBQDYDpAZibm5sn534CAogSAABRbgAA1QCYHoB9+/bt6wEA0CEAAKLcAACqATA9AHNzc/Pk3E9AAFECACDKDQCgGgDTA7Bv3759PQAAOgQAQJQbAEDUJ6d5OJYCivXLAAAAAElFTkSuQmCC";
         var bg = "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA9SURBVDhPY3j37t1/EGZgYABjUvmUG4BLggQ+hQbglCCSPxoGQExIASE+EJOnEYlPoQE4JYjkD/kwePcfAKDWZB8KU+/AAAAAAElFTkSuQmCC";
 
-        var isdevmode = 0;
+        var isdevmode = 1;
         var isinbattle = 0;
 
         let enemy_timeout;
@@ -804,15 +804,17 @@
             <h4>Encounter</h4>
             <p id="enemy_id_text">A Ghost appears...</p>
             <br>
+            <img id="enc_plyr_icn" class="plyr_spot">
             <p id="plyr_hth">10/10</p>
             <p id="plyr_amr">5/5</p>
             <br>
+            <img id="enc_enmy_icn" class="plyr_spot">
             <p id="plyr_hth">5/5</p>
             <p id="plyr_amr">0/0</p>
-            <button>Fists</button>
-            <button>Axe</button>
-            <button>stun</button>
-            <button>heal</button>
+            <button id="plyr_slap_name" class="" onclick="Encounter(2)">Fists</button>
+            <button id="plyr_weapon_name" class="" onclick="Encounter(3)">Axe</button>
+            <button id="plyr_armor_name" class="" onclick="Encounter(4)">stun</button>
+            <button id="plyr_heal_name" class="" onclick="Encounter(5)">heal</button>
         </div>
         
         <br>

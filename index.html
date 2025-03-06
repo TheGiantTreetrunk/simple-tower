@@ -94,7 +94,7 @@
 
         var enemy = {
             id: 0,
-            health: 0,
+            health: 10,
             damange: 0,
             speed: 0,
             cur_health: 0,
@@ -402,6 +402,7 @@
                 alert("battle");
                 //load the fucking battle
                 encounter_chance = 0;
+                Encounter(0);
                 UIX(2);
             }
 
@@ -453,43 +454,6 @@
 
 
         function Encounter(modes) {
-
-            /*Structure of battle mode*/
-            /*
-             mode 1: the battle starts
-                    
-                    - does the enemy still have health
-                        -if yes then it will prepare a attack through a timeout
-                        -if no then it will clear the attack time out if it has one and reward the player points 
-                        -when battle is over isinbattle is turned back to 0.
-                        -load back the level and continue through the tower.
-
-            mode 2: listens to player attacks
-                    - checks ability player used
-                        -will either be a heal or an attack
-                        - if an attack then enemy loses health
-                            if its dead or less than 0 then battle is over.
-
-                    var player = {
-                        score: 0,
-                        max_health: 10,
-                        cur_health: 10,
-                        max_armour: 10,
-                        cur_armour: 0,
-                        cur_weapon: 0,
-                        has_armour: 0,
-                        has_key: 0
-
-                    };
-
-                    var enemy = {
-                        id: 0,
-                        health: 0,
-                        damange: 0
-                        cur_health
-                        cur_armour
-                    };
-            */
         
             if(modes == 0) {
                 if(cur_floor != tot_floors) {
@@ -504,6 +468,11 @@
                     enemy.cur_health = ent_enemies_health_n[xx11];
                     isinbattle = 1;
                     document.getElementById("enemy_id_text").innerHTML = "A " + ent_enemies_name_id[xx11] + " appears in front of you...";
+
+                    document.getElementById("enc_plyr_icn").src = char1;
+
+                    player.cur_health = player.max_health;
+                    player.cur_armour = player.max_armour;
                     Encounter(1);
                 }
 
@@ -515,6 +484,11 @@
 
             if(modes == 1) {
 
+                document.getElementById("plyr_hth").innerHTML = player.cur_health + " / " + player.max_health;
+                document.getElementById("plyr_amr").innerHTML = player.cur_armour + " / " + player.max_armour;
+                document.getElementById("enmy_hth").innerHTML = enemy.cur_health + " / " + enemy.max_health;
+                document.getElementById("enmy_amr").innerHTML = "0" + " / " + "0";
+
                 if(player.cur_health <= 0) {
                     //game over...
                     alert("game over! you lose the game!!!!!");
@@ -522,7 +496,7 @@
                     UIX(0);
                 }
 
-                if(enemy.cur_health > 0) {
+                if(enemy.cur_health != 0) {
                     //it will attack
                     enemy_timeout = setTimeout(Encounter(6), enemy.speed);
                 }
@@ -552,14 +526,29 @@
 
             if(modes == 3) {
                 //the player heals... must have food in inventory to heal
+                if(player.food >= 1) {
+                    player.cur_health += 5;
+                    player.food -= 1;
+                    document.getElementById("plyr_heal_name").disabled = true;
+                    setTimeout(Encounter_Action_en(2), 5000);
+                } 
             }
 
             if(modes == 4) {
                 //the player slaps enemy...
+                enemy.cur_health -= 1;
+                document.getElementById("plyr_slap_name").disabled = true;
+                setTimeout(Encounter_Action_en(3), 2000);
+
             }
 
             if(modes == 5) {
                 //the player braces shield if they have shield
+                if(player.cur_armour >= 1) {
+
+                    document.getElementById("plyr_armor_name").disabled = true;
+                    setTimeout(Encounter_Action_en(4), 4000);
+                }
             }
 
             if(modes == 6) {
@@ -809,8 +798,8 @@
             <p id="plyr_amr">5/5</p>
             <br>
             <img id="enc_enmy_icn" class="plyr_spot">
-            <p id="plyr_hth">5/5</p>
-            <p id="plyr_amr">0/0</p>
+            <p id="enmy_hth">5/5</p>
+            <p id="enmy_amr">0/0</p>
             <button id="plyr_slap_name" class="" onclick="Encounter(2)">Fists</button>
             <button id="plyr_weapon_name" class="" onclick="Encounter(3)">Axe</button>
             <button id="plyr_armor_name" class="" onclick="Encounter(4)">stun</button>

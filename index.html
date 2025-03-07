@@ -533,6 +533,8 @@
 
             if(modes == 2) {
                 //the player attacks with main weapon
+
+                Encounter(1);
             }
 
             if(modes == 3) {
@@ -542,6 +544,8 @@
                     player.food -= 1;
                     document.getElementById("plyr_heal_name").disabled = true;
                     setTimeout(Encounter_Action_en(2), 5000);
+
+                    Encounter(1);
                 } 
             }
 
@@ -551,6 +555,8 @@
                 document.getElementById("plyr_slap_name").disabled = true;
                 setTimeout(Encounter_Action_en(3), 2000);
 
+                Encounter(1);
+
             }
 
             if(modes == 5) {
@@ -559,9 +565,29 @@
 
                     document.getElementById("plyr_armor_name").disabled = true;
                     setTimeout(Encounter_Action_en(4), 4000);
+
+                    Encounter(1);
                 }
             }
         
+        }
+
+        function Encounter_Action_en(recall) {
+            if(recall == 1) {
+
+            }
+
+            if(recall == 2) {
+                document.getElementById("plyr_heal_name").disabled = false;
+            }
+
+            if(recall == 3) {
+                document.getElementById("plyr_slap_name").disabled = false;
+            }
+
+            if(recall == 4) {
+                document.getElementById("plyr_armor_name").disabled = false;
+            }
         }
 
         function Enemy_Attack() {
@@ -818,10 +844,10 @@
             <img id="enc_enmy_icn" class="plyr_spot">
             <p id="enmy_hth">5/5</p>
             <p id="enmy_amr">0/0</p>
-            <button id="plyr_slap_name" class="" onclick="Encounter(2)">Fists</button>
-            <button id="plyr_weapon_name" class="" onclick="Encounter(3)">Axe</button>
-            <button id="plyr_armor_name" class="" onclick="Encounter(4)">stun</button>
-            <button id="plyr_heal_name" class="" onclick="Encounter(5)">heal</button>
+            <button id="plyr_slap_name" class="" onclick="Encounter(4)">Fists</button>
+            <button id="plyr_weapon_name" class="" onclick="Encounter(2)">Axe</button>
+            <button id="plyr_armor_name" class="" onclick="Encounter(5)">stun</button>
+            <button id="plyr_heal_name" class="" onclick="Encounter(3)">heal</button>
         </div>
         
         <br>

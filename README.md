@@ -3,6 +3,8 @@
 You are walking in the forest one day and fall into a hole. You eventually wake up at the bottom to find a mystical tower in front of you.
 looks like its the only way up....
 
+[Click to play online for free!](https://thegianttreetrunk.github.io/simple-tower/)
+
 ## Getting Started
 
 These instructions will guide you through the basics of this

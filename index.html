@@ -170,8 +170,9 @@
         }
 
         function Generate_Tower() {
+            score = 0;
             cur_floor = 0;
-            cur_spot = 0;
+            cur_spot = 4;
             gm_tower_obj_0.length = 0;
             gm_tower_obj_1.length = 0;
             gm_tower_obj_2.length = 0;
@@ -289,26 +290,34 @@
                 if(cur_spot != 0) {
                     if(cur_spot == 1) {
                         if(gm_tower_obj_0[cur_floor] != "Nothing") {
-                        gm_tower_obj_0_a[cur_floor] = 1;
-                        Encounter_Meter(1);
+                            if(gm_tower_obj_0_a[cur_floor] != 2) {
+                                gm_tower_obj_0_a[cur_floor] = 1;
+                                Encounter_Meter(1);
+                            }
                         }
                     }
                     if(cur_spot == 2) {
                         if(gm_tower_obj_1[cur_floor] != "Nothing") {
-                        gm_tower_obj_1_a[cur_floor] = 1;
-                        Encounter_Meter(1);
+                            if(gm_tower_obj_1_a[cur_floor] != 2) {
+                                gm_tower_obj_1_a[cur_floor] = 1;
+                                Encounter_Meter(1);
+                            }
                         }
                     }
                     if(cur_spot == 3) {
                         if(gm_tower_obj_2[cur_floor] != "Nothing") {
-                        gm_tower_obj_2_a[cur_floor] = 1;
-                        Encounter_Meter(1);
+                            if(gm_tower_obj_2_a[cur_floor] != 2) {
+                                gm_tower_obj_2_a[cur_floor] = 1;
+                                Encounter_Meter(1);
+                            }
                         }
                     }
                     if(cur_spot == 4) {
                         if(gm_tower_obj_3[cur_floor] != "Nothing") {
-                        gm_tower_obj_3_a[cur_floor] = 1;
-                        Encounter_Meter(1);
+                            if(gm_tower_obj_3_a[cur_floor] != 2) {
+                                gm_tower_obj_3_a[cur_floor] = 1;
+                                Encounter_Meter(1);
+                            }
                         }
                     }
                 }
@@ -320,26 +329,34 @@
                 if(cur_spot != 0) {
                     if(cur_spot == 1) {
                         if(gm_tower_obj_0[cur_floor] != "Nothing") {
-                        gm_tower_obj_0_a[cur_floor] = 2;
-                        Encounter_Meter(2);
+                            if(gm_tower_obj_0_a[cur_floor] != 1) {
+                                gm_tower_obj_0_a[cur_floor] = 2;
+                                Encounter_Meter(2);
+                            }
                         }
                     }
                     if(cur_spot == 2) {
                         if(gm_tower_obj_1[cur_floor] != "Nothing") {
-                        gm_tower_obj_1_a[cur_floor] = 2;
-                        Encounter_Meter(2);
+                            if(gm_tower_obj_1_a[cur_floor] != 1) {
+                                gm_tower_obj_1_a[cur_floor] = 2;
+                                Encounter_Meter(2);
+                            }
                         }
                     }
                     if(cur_spot == 3) {
                         if(gm_tower_obj_2[cur_floor] != "Nothing") {
-                        gm_tower_obj_2_a[cur_floor] = 2;
-                        Encounter_Meter(2);
+                            if(gm_tower_obj_2_a[cur_floor] != 1) {
+                                gm_tower_obj_2_a[cur_floor] = 2;
+                                Encounter_Meter(2);
+                            }
                         }
                     }
                     if(cur_spot == 4) {
                         if(gm_tower_obj_3[cur_floor] != "Nothing") {
-                        gm_tower_obj_3_a[cur_floor] = 2;
-                        Encounter_Meter(2);
+                            if(gm_tower_obj_3_a[cur_floor] != 1) {
+                                gm_tower_obj_3_a[cur_floor] = 2;
+                                Encounter_Meter(2);
+                            }
                         }
                     }
                 }
@@ -354,37 +371,34 @@
             document.getElementById("score").innerHTML = "Score: " + player.score;
             document.getElementById("floor").innerHTML = "Floor: " + cur_floor;
 
-            if(cur_floor != 0 || cur_floor != tot_floors) {
-                document.getElementById("floor_map").innerHTML = "<img id='spot0' class='plyr_spot'> "+ "<img id='spot1' class='plyr_spot'>" + "<img class='" + gm_tower_obj_0[cur_floor] + " " + obj_types_names_st[gm_tower_obj_0_a[cur_floor]] + "'>" + "<img id='spot2' class='plyr_spot'> " + "<img class='" + gm_tower_obj_1[cur_floor] + " " + obj_types_names_st[gm_tower_obj_1_a[cur_floor]] + "'>"  + "<img id='spot3' class='plyr_spot'> " + "<img class='" + gm_tower_obj_2[cur_floor] + " " + obj_types_names_st[gm_tower_obj_2_a[cur_floor]] + "'>"  + "<img id='spot4' class='plyr_spot'> " + "<img class='" + gm_tower_obj_3[cur_floor] + " " + obj_types_names_st[gm_tower_obj_3_a[cur_floor]] + "'>"  + " ";
+            document.getElementById("floor_map").innerHTML = "<img id='spot0' class='plyr_spot'> "+ "<img id='spot1' class='plyr_spot'>" + "<img class='" + gm_tower_obj_0[cur_floor] + " " + obj_types_names_st[gm_tower_obj_0_a[cur_floor]] + "'>" + "<img id='spot2' class='plyr_spot'> " + "<img class='" + gm_tower_obj_1[cur_floor] + " " + obj_types_names_st[gm_tower_obj_1_a[cur_floor]] + "'>"  + "<img id='spot3' class='plyr_spot'> " + "<img class='" + gm_tower_obj_2[cur_floor] + " " + obj_types_names_st[gm_tower_obj_2_a[cur_floor]] + "'>"  + "<img id='spot4' class='plyr_spot'> " + "<img class='" + gm_tower_obj_3[cur_floor] + " " + obj_types_names_st[gm_tower_obj_3_a[cur_floor]] + "'>"  + " ";
                 
-                document.getElementById("spot0").src = blank;
-                document.getElementById("spot1").src = blank;
-                document.getElementById("spot2").src = blank;
-                document.getElementById("spot3").src = blank;
-                document.getElementById("spot4").src = blank;
+            document.getElementById("spot0").src = blank;
+            document.getElementById("spot1").src = blank;
+            document.getElementById("spot2").src = blank;
+            document.getElementById("spot3").src = blank;
+            document.getElementById("spot4").src = blank;
 
-                if(cur_spot == 0) {
-                    document.getElementById("spot0").src = char1;
-                }
-                if(cur_spot == 1) {
-                    document.getElementById("spot1").src = char1;
-                }
-                if(cur_spot == 2) {
-                    document.getElementById("spot2").src = char1;
-                }
-                if(cur_spot == 3) {
-                    document.getElementById("spot3").src = char1;
-                }
-
-                if(cur_spot == 4) {
-                    document.getElementById("spot4").src = char1;
-                }
-            } 
-
-            if(cur_floor == 0 || cur_floor == tot_floors) {
-                document.getElementById("floor_map").innerHTML = "";
+            if(cur_spot == 0) {
+                document.getElementById("spot0").src = char1;
             }
 
+            if(cur_spot == 1) {
+                document.getElementById("spot1").src = char1;
+            }
+
+            if(cur_spot == 2) {
+                document.getElementById("spot2").src = char1;
+            }
+
+            if(cur_spot == 3) {
+                document.getElementById("spot3").src = char1;
+            }
+
+            if(cur_spot == 4) {
+                document.getElementById("spot4").src = char1;
+            }
+            
             if(cur_spot != 0) {
                 document.getElementById("com_up").disabled = true;
                 document.getElementById("com_dwn").disabled = true;
@@ -607,9 +621,6 @@
                     document.getElementById("enmy_hth").innerHTML = enemy.cur_health + " / " + enemy.health;
                     document.getElementById("enmy_amr").innerHTML = "0" + " / " + "0";
 
-
-                    document.getElementById("eny_attacks_bool").innerHTML = "idl";
-
                     if(player.cur_health <= 0) {
                         //game over...
                         alert("game over! you lose the game!!!!!");
@@ -714,8 +725,6 @@
                 var xx12 = Math.floor((Math.random() * enemy.damange) + 1);
                 player.cur_health -= xx12;
                 console.log(xx12);
-                document.getElementById("eny_atk_n").innerHTML += "Hello";
-                //window.clearTimeout();
                 Encounter(1);
                 
             }
@@ -948,8 +957,6 @@
         </div>
 
         <div id="scene_encounter">
-            <p id="eny_attacks_bool"></p>
-            <p id="eny_atk_n"></p>
             <h4>Encounter</h4>
             <p id="enemy_id_text">A Ghost appears...</p>
             <br>

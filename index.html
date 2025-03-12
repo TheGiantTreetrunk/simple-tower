@@ -7,6 +7,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="HandheldFriendly" content="true"/>
 
+        <link rel="stylesheet" href="UIX/css/style.css">
+
         <script>
 
         var tot_floors = 10;
@@ -145,26 +147,37 @@
         function Game_Manager() {//the story manager
             if(gm_story_tracker_prog == 0) {
                 /*You start your adventure. this will be a basic story tracker feature....*/
+                document.getElementById("rpg_window_confirmation").style.display = "block";
+                document.getElementById("output_title").innerHTML = "The Story Begins";
                 document.getElementById("output").innerHTML = "You awaken at the bottom of the pit you fell into. Dazed, and a little scuffed up you eventually come to. In front you find a ladder and a " + player.cur_weapon + " looks like the only way is up...";
             }
 
             if(gm_story_tracker_prog == 1) {
                 /*You have found the key to progress to the final boss room*/
+                document.getElementById("rpg_window_confirmation").style.display = "block";
+                document.getElementById("output_title").innerHTML = "The Dark Key...";
                 document.getElementById("output").innerHTML = "As you go through the " + "compartment name" + ", you discover a mystical glowing key shimmering with power. Whereever this key leads to must be hiding something extremely valuable..."
             }
 
             if(gm_story_tracker_prog == 2) {
                 /*You enter the final room and find the boss*/
+                document.getElementById("rpg_window_confirmation").style.display = "block";
+                document.getElementById("output_title").innerHTML = "The Door";
                 document.getElementById("output").innerHTML = "As you bring the key to the lock it begins to glow. You insert the key and hear the mechanisim release allowing you to open the door with ease. In front of you is a throne with someone occupying it. They proceed to grab their weapon and charge you.";
             }
 
             if(gm_story_tracker_prog == 3) {
                 /*You defeat the final boss and discover the exit out*/
+                document.getElementById("rpg_window_confirmation").style.display = "block";
+                document.getElementById("output_title").innerHTML = "A Happy Ending";
                 document.getElementById("output").innerHTML = "";
             }
 
             if(gm_story_tracker_prog == 4) {
                 /*You are defeated you lose the game!*/
+                document.getElementById("rpg_window_confirmation").style.display = "block";
+                document.getElementById("output_title").innerHTML = "The Story Begins";
+                document.getElementById("output_title").innerHTML = "Game Over!";
                 document.getElementById("output").innerHTML = "";
             }
         }
@@ -738,6 +751,7 @@
                     document.getElementById("scene_tower_config").style.display = "block";
                     document.getElementById("scene_level").style.display = "none";
                     document.getElementById("scene_encounter").style.display = "none";
+                    document.getElementById("rpg_window_confirmation").style.display = "none";
                 }
 
                 if(loadin == 1) {
@@ -750,6 +764,10 @@
                     document.getElementById("scene_tower_config").style.display = "none";
                     document.getElementById("scene_level").style.display = "none";
                     document.getElementById("scene_encounter").style.display = "block";
+                }
+
+                if(loadin == 3) {
+                    document.getElementById("rpg_window_confirmation").style.display = "none";
                 }
             }
         }
@@ -915,13 +933,15 @@
                 left: 10px;
                 border: 3px solid black;
                 pointer-events: none;
+                background-color: #ffffff;
+                z-index: -1;
             }
             body {
                 padding: 12px;
             }
         </style>
     </head>
-    <body onload="UIX(0)" onkeydown="keydownFunction()" onkeyup="keyupFunction()">
+    <body class="body_desktop" onload="UIX(0)" onkeydown="keydownFunction()" onkeyup="keyupFunction()">
         <div id="terminal_border"></div>
         <img id="bg">
         <h1>Simple Tower</h1>
@@ -947,7 +967,8 @@
                 <img id="bgimg">
                 <p id="floor_map"># @ X X X X</p>
             </div>
-            <p id="output">text output goes here...</p>
+            <br>
+            <br>
             <button id="com_up" onclick="Game_Command(1)">Up</button>
             <button id="com_dwn" onclick="Game_Command(2)">Down</button>
             <button id="com_lft" onclick="Game_Command(4)">Left</button>
@@ -973,6 +994,24 @@
             <button id="plyr_heal_name" class="bttl_ctl" onclick="Encounter(3)">heal</button>
         </div>
         
+        <div id="rpg_window_confirmation">
+		
+			<div id="" class="confirm_window_background_shader"></div>
+			
+			<div id="" class="confirm_window_window">
+				
+				<div id="" class="confirm_window_content">
+                    <h3 id="output_title">The Story Begins!</h3>
+					<p id="output">text output goes here...</p>
+					<br>
+					<li class="icon_list_cancel_icon"><button onclick="UIX(3)">OK</button></li>
+				</div>
+			
+			</div>
+			
+		</div>
+
+
         <br>
         <br>
     </body>

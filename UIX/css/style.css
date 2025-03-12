@@ -72,7 +72,11 @@ div {
 	image-rendering: pixelated;
 }
 
-
+#sprite_rose_uix_taskbar_icon {
+	width: 32px;
+	height: 32px;
+	background-image: url('../img/sprite_ui_rose_icon.png');
+}
 
 
 #rpg_window_confirmation {

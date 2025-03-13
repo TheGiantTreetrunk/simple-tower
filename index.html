@@ -31,6 +31,11 @@
         var gm_tower_obj_2_a = [];
         var gm_tower_obj_3_a = [];
 
+        var gm_tower_obj_0_i = [];
+        var gm_tower_obj_1_i = [];
+        var gm_tower_obj_2_i = [];
+        var gm_tower_obj_3_i = [];
+
 
         var obj_types_id = [0,1,2];
         var obj_types_names_id = ["Nothing", "Chest", "Barrel"];
@@ -40,9 +45,9 @@
         var sce_room_id = [1,2];
         var sce_room_id_n = ["Room type 1","Room type 2"]
 
-        var obj_items_id = [0,1,2,3];
+        var obj_items_id = [0,1,2,3,4];
         var obj_items_names_id = ["Nothing","Food","Weapon","Armour","Coin"];
-        var obj_items_perks_n = [0,2,1,2];
+        var obj_items_perks_n = [0,2,1,2,2];
 
         var obj_weapon_id = [1,2,3];
         var obj_weapon_name_id = ["Sword","Axe","Club"];
@@ -147,7 +152,7 @@
             UIX(1);
         }
 
-        function Game_Manager() {//the story manager
+        function Game_Manager(gm_story_tracker_prog) {//the story manager
             if(gm_story_tracker_prog == 0) {
                 /*You start your adventure. this will be a basic story tracker feature....*/
                 document.getElementById("rpg_window_confirmation").style.display = "block";
@@ -179,9 +184,15 @@
             if(gm_story_tracker_prog == 4) {
                 /*You are defeated you lose the game!*/
                 document.getElementById("rpg_window_confirmation").style.display = "block";
-                document.getElementById("output_title").innerHTML = "The Story Begins";
                 document.getElementById("output_title").innerHTML = "Game Over!";
                 document.getElementById("output").innerHTML = "";
+            }
+
+            if(gm_story_tracker_prog == 5) {
+                /*You try to go to the top floor without the key!*/
+                document.getElementById("rpg_window_confirmation").style.display = "block";
+                document.getElementById("output_title").innerHTML = "A Locked Door";
+                document.getElementById("output").innerHTML = "Looks like the next floor access door is locked. You will need to find a key. It must be somewhere....";
             }
         }
 
@@ -198,6 +209,11 @@
             gm_tower_obj_1_a.length = 0;
             gm_tower_obj_2_a.length = 0;
             gm_tower_obj_3_a.length = 0;
+
+            gm_tower_obj_0_i.length = 0;
+            gm_tower_obj_1_i.length = 0;
+            gm_tower_obj_2_i.length = 0;
+            gm_tower_obj_3_i.length = 0;
 
             for (var i = 0; i < tot_floors; i++) {
                 /*Getting Floor Needing to generate*/
@@ -234,6 +250,23 @@
                 gm_tower_obj_3_a.push(0);
 
                 /*Roll for Item Types Ends!*/
+
+
+                /*Roll for lootables starts*/
+                // obj_items_names_id obj_items_id
+                var xx6 = Math.floor((Math.random() * obj_items_id.length));
+                gm_tower_obj_0_i.push(obj_items_names_id[xx6]);
+
+                var xx7 = Math.floor((Math.random() * obj_items_id.length));
+                gm_tower_obj_1_i.push(obj_items_names_id[xx7]);
+
+                var xx8 = Math.floor((Math.random() * obj_items_id.length));
+                gm_tower_obj_2_i.push(obj_items_names_id[xx8]);
+
+                var xx9 = Math.floor((Math.random() * obj_items_id.length));
+                gm_tower_obj_3_i.push(obj_items_names_id[xx9]);
+                
+
                 
             }
 
@@ -258,7 +291,7 @@
 
             /*Finally, we will exit this routine and jump into the game manager and tell it to give output and to Load the UI.*/
             gm_story_tracker_prog = 0;
-            Game_Manager();
+            Game_Manager(0);
         }
 
         function Game_Command(com) {
@@ -274,7 +307,7 @@
                             cur_floor += 1;
                         }
                     } else {
-                        alert("you need to find the key to enter this floor!");
+                        Game_Manager(5);
                     }
                 }
             }

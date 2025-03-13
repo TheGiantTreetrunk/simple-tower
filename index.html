@@ -48,6 +48,7 @@
         var obj_weapon_name_id = ["Sword","Axe","Club"];
         var obj_weapon_damage_n = [4,3,2];
         var obj_weapon_damage_c = [2000,2000,1000];
+        var obj_weapon_damage_a = [2,2,1];
 
         var ent_enemies_id = [1,2,3,4];
         var ent_enemies_name_id = ["Ghost","Snake","Glarb","Serpant"];
@@ -102,6 +103,7 @@
             cur_health: 10,
             max_armour: 10,
             cur_armour: 0,
+            weapon_id: 0,
             cur_weapon: 0,
             wpn_dmg: 0,
             wpn_cool_dwn: 0,
@@ -252,6 +254,7 @@
             player.cur_weapon = obj_weapon_name_id[yy1];
             player.wpn_dmg = obj_weapon_damage_n[yy1];
             player.wpn_cool_dwn = obj_weapon_damage_c[yy1];
+            player.weapon_id = yy1;
 
             /*Finally, we will exit this routine and jump into the game manager and tell it to give output and to Load the UI.*/
             gm_story_tracker_prog = 0;
@@ -668,6 +671,9 @@
                 var xx13 = Math.floor((Math.random() * player.wpn_dmg) + 1);
                 enemy.cur_health -= xx13;
                 document.getElementById("plyr_weapon_name").disabled = true;
+                var element = document.getElementById("plyr_weapon_name");
+                element.classList.add("button_re_enable");
+                document.getElementById("plyr_weapon_name").style.animationDuration = obj_weapon_damage_a[player.weapon_id];
                 setTimeout(Encounter_Action_main_attack, player.wpn_cool_dwn);
 
                 Encounter(1);
@@ -679,6 +685,9 @@
                     player.cur_health += 5;
                     player.food -= 1;
                     document.getElementById("plyr_heal_name").disabled = true;
+                    var element = document.getElementById("plyr_heal_name");
+                    element.classList.add("button_re_enable");
+                    document.getElementById("plyr_heal_name").style.animationDuration = "5s";
                     setTimeout(Encounter_Action_heal, 5000);
 
                     Encounter(1);
@@ -689,6 +698,9 @@
                 //the player slaps enemy...
                 enemy.cur_health -= 1;
                 document.getElementById("plyr_slap_name").disabled = true;
+                var element = document.getElementById("plyr_slap_name");
+                element.classList.add("button_re_enable");
+                document.getElementById("plyr_slap_name").style.animationDuration = "2s";
                 setTimeout(Encounter_Action_slap, 2000);
 
                 Encounter(1);
@@ -700,6 +712,9 @@
                 if(player.cur_armour >= 1) {
 
                     document.getElementById("plyr_armor_name").disabled = true;
+                    var element = document.getElementById("plyr_armor_name");
+                    element.classList.add("button_re_enable");
+                    document.getElementById("plyr_armor_name").style.animationDuration = "4s";
                     setTimeout(Encounter_Action_armor, 4000);
 
                     Encounter(1);
@@ -710,11 +725,17 @@
 
         function Encounter_Action_slap() {
 
+            var element = document.getElementById("plyr_slap_name");
+            element.classList.remove("button_re_enable");
+
             document.getElementById("plyr_slap_name").disabled = false;
 
         }
 
         function Encounter_Action_armor() {
+
+            var element = document.getElementById("plyr_armor_name");
+            element.classList.remove("button_re_enable");
 
             document.getElementById("plyr_armor_name").disabled = false;
 
@@ -722,11 +743,17 @@
 
         function Encounter_Action_heal() {
 
+            var element = document.getElementById("plyr_heal_name");
+            element.classList.remove("button_re_enable");
+
             document.getElementById("plyr_heal_name").disabled = false;
             
         }
 
         function Encounter_Action_main_attack() {
+
+            var element = document.getElementById("plyr_weapon_name");
+            element.classList.remove("button_re_enable");
 
             document.getElementById("plyr_weapon_name").disabled = false;
 
@@ -967,7 +994,7 @@
                     <h3 id="output_title">The Story Begins!</h3>
 					<p id="output">text output goes here...</p>
 					<br>
-					<li class="icon_list_cancel_icon"><button onclick="UIX(3)">OK</button></li>
+					<button onclick="UIX(3)">OK</button>
 				</div>
 			
 			</div>

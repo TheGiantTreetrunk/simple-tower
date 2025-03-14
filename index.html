@@ -46,7 +46,7 @@
         var sce_room_id_n = ["Room type 1","Room type 2"]
 
         var obj_items_id = [0,1,2,3,4];
-        var obj_items_names_id = ["Nothing","Food","Weapon","Armour","Coin"];
+        var obj_items_names_id = ["Nothing","Food","Weapon","Armour","Coin","Food","Food","Nothing","Coin","Coin"];
         var obj_items_perks_n = [0,2,1,2,2];
 
         var obj_weapon_id = [1,2,3];
@@ -120,6 +120,7 @@
             called_act_2: 0,
             called_act_3: 0,
             called_act_4: 0,
+            wpn_found: 0
 
         };
 
@@ -194,10 +195,20 @@
                 document.getElementById("output_title").innerHTML = "A Locked Door";
                 document.getElementById("output").innerHTML = "Looks like the next floor access door is locked. You will need to find a key. It must be somewhere....";
             }
+
+            if(gm_story_tracker_prog == 6) {
+                /*You find a weapon!*/
+
+                document.getElementById("bttn_confirm_ok").style.display = "none";
+                document.getElementById("rpg_window_confirmation").style.display = "block";
+                document.getElementById("output_title").innerHTML = "A New Weapon";
+                document.getElementById("output").innerHTML = "You have found a " + obj_weapon_name_id[player.wpn_found] + ". Looks to be in decent shape, would you like to swap?" + 
+                "<button onclick='Wpn_Swap()'>Swap</button><button onclick='UIX(3)'>Don't Swap</button>";
+            }
         }
 
         function Generate_Tower() {
-            score = 0;
+            player.score = 0;
             cur_floor = 0;
             cur_spot = 4;
             gm_tower_obj_0.length = 0;
@@ -289,6 +300,31 @@
             player.wpn_cool_dwn = obj_weapon_damage_c[yy1];
             player.weapon_id = yy1;
 
+
+            //Add the key
+            var yy2 = Math.floor((Math.random() * 4) + 1);
+            var yy3 = Math.floor((Math.random() * (tot_floors - 1)) + 1);
+
+            if(yy2 == 1) {
+                gm_tower_obj_0_i[yy3] = "Key";
+                gm_tower_obj_0[yy3] = "Chest";
+            }
+
+            if(yy2 == 2) {
+                gm_tower_obj_1_i[yy3] = "Key";
+                gm_tower_obj_1[yy3] = "Chest";
+            }
+
+            if(yy2 == 3) {
+                gm_tower_obj_2_i[yy3] = "Key";
+                gm_tower_obj_2[yy3] = "Chest";
+            }
+
+            if(yy2 == 4) {
+                gm_tower_obj_3_i[yy3] = "Key";
+                gm_tower_obj_3[yy3] = "Chest";
+            }
+
             /*Finally, we will exit this routine and jump into the game manager and tell it to give output and to Load the UI.*/
             gm_story_tracker_prog = 0;
             Game_Manager(0);
@@ -342,7 +378,8 @@
                         if(gm_tower_obj_0[cur_floor] != "Nothing") {
                             if(gm_tower_obj_0_a[cur_floor] != 2) {
                                 gm_tower_obj_0_a[cur_floor] = 1;
-                                Encounter_Meter(1);
+                                Lootable(1);
+                                //Encounter_Meter(1);
                             }
                         }
                     }
@@ -350,7 +387,8 @@
                         if(gm_tower_obj_1[cur_floor] != "Nothing") {
                             if(gm_tower_obj_1_a[cur_floor] != 2) {
                                 gm_tower_obj_1_a[cur_floor] = 1;
-                                Encounter_Meter(1);
+                                Lootable(1);
+                                //Encounter_Meter(1);
                             }
                         }
                     }
@@ -358,7 +396,8 @@
                         if(gm_tower_obj_2[cur_floor] != "Nothing") {
                             if(gm_tower_obj_2_a[cur_floor] != 2) {
                                 gm_tower_obj_2_a[cur_floor] = 1;
-                                Encounter_Meter(1);
+                                Lootable(1);
+                                //Encounter_Meter(1);
                             }
                         }
                     }
@@ -366,7 +405,8 @@
                         if(gm_tower_obj_3[cur_floor] != "Nothing") {
                             if(gm_tower_obj_3_a[cur_floor] != 2) {
                                 gm_tower_obj_3_a[cur_floor] = 1;
-                                Encounter_Meter(1);
+                                Lootable(1);
+                                //Encounter_Meter(1);
                             }
                         }
                     }
@@ -381,7 +421,8 @@
                         if(gm_tower_obj_0[cur_floor] != "Nothing") {
                             if(gm_tower_obj_0_a[cur_floor] != 1) {
                                 gm_tower_obj_0_a[cur_floor] = 2;
-                                Encounter_Meter(2);
+                                Lootable(2);
+                                //Encounter_Meter(2);
                             }
                         }
                     }
@@ -389,7 +430,8 @@
                         if(gm_tower_obj_1[cur_floor] != "Nothing") {
                             if(gm_tower_obj_1_a[cur_floor] != 1) {
                                 gm_tower_obj_1_a[cur_floor] = 2;
-                                Encounter_Meter(2);
+                                Lootable(2);
+                                //Encounter_Meter(2);
                             }
                         }
                     }
@@ -397,7 +439,8 @@
                         if(gm_tower_obj_2[cur_floor] != "Nothing") {
                             if(gm_tower_obj_2_a[cur_floor] != 1) {
                                 gm_tower_obj_2_a[cur_floor] = 2;
-                                Encounter_Meter(2);
+                                Lootable(2);
+                                //Encounter_Meter(2);
                             }
                         }
                     }
@@ -405,7 +448,8 @@
                         if(gm_tower_obj_3[cur_floor] != "Nothing") {
                             if(gm_tower_obj_3_a[cur_floor] != 1) {
                                 gm_tower_obj_3_a[cur_floor] = 2;
-                                Encounter_Meter(2);
+                                Lootable(2);
+                                //Encounter_Meter(2);
                             }
                         }
                     }
@@ -525,6 +569,369 @@
                 document.getElementById("weapon").src = Club;
             }
 
+        }
+
+        function Lootable(player_action) {
+
+            //"Nothing","Food","Weapon","Armour","Coin","Food","Food","Nothing","Coin","Coin"
+
+            if(player_action == 1) {
+                if(cur_spot == 1) {
+                    if(gm_tower_obj_0_i[cur_floor] == "Nothing") {
+                        //do nothing or kill it with fire according to nick idefka!!!!
+                        Encounter_Meter(1);
+                    }
+
+                    if(gm_tower_obj_0_i[cur_floor] == "Coin") {
+                        if(gm_difficulty == 1) {
+                            player.coin += 1;
+                            player.score += 5;
+                            gm_tower_obj_0_i[cur_floor] = "Nothing";
+                            Encounter_Meter(1);
+                        }
+
+                        if(gm_difficulty == 2) {
+                            player.coin += 2;
+                            player.score += 10;
+                            gm_tower_obj_0_i[cur_floor] = "Nothing";
+                            Encounter_Meter(1);
+                        }
+
+                        if(gm_difficulty == 3) {
+                            var xxx1 = Math.floor((Math.random() * 10));
+                            var xxx2 = xxx1 * 5;
+                            player.coin += xxx1;
+                            player.score += xxx2;
+                            gm_tower_obj_0_i[cur_floor] = "Nothing";
+                            Encounter_Meter(1);
+                        }
+                    }
+
+                    if(gm_tower_obj_0_i[cur_floor] == "Food") {
+                        if(gm_difficulty == 1) {
+                            player.food += 1;
+                            player.score += 15;
+                            gm_tower_obj_0_i[cur_floor] = "Nothing";
+                            Encounter_Meter(1);
+                        }
+
+                        if(gm_difficulty == 2) {
+                            player.food += 2;
+                            player.score += 30;
+                            gm_tower_obj_0_i[cur_floor] = "Nothing";
+                            Encounter_Meter(1);
+                        }
+
+                        if(gm_difficulty == 3) {
+                            var xxx1 = Math.floor((Math.random() * 5));
+                            var xxx2 = xxx1 * 15;
+                            player.food += xxx1;
+                            player.score += xxx2;
+                            gm_tower_obj_0_i[cur_floor] = "Nothing";
+                            Encounter_Meter(1);
+                        }
+                    }
+
+                    if(gm_tower_obj_0_i[cur_floor] == "Armour") {
+                        if(player.has_armour == 0) {
+                            player.has_armour = 1;
+                            player.cur_armour = 5;
+                            player.max_armour = 5;
+                        }
+
+                        if(player.has_armour != 0) {
+                            player.has_armour = 5;
+                        }
+
+                        gm_tower_obj_0_i[cur_floor] = "Nothing";
+                        Encounter_Meter(1);
+                    }
+
+                    if(gm_tower_obj_0_i[cur_floor] == "Weapon") {
+                        var yy1 = Math.floor((Math.random() * obj_weapon_id.length));
+                        player.wpn_found = yy1;
+                        gm_tower_obj_0_i[cur_floor] = "Nothing";
+                        Game_Manager(6);
+                    }
+
+                    if(gm_tower_obj_0_i[cur_floor] == "Key") {
+                        player.has_key = 1;
+                        gm_tower_obj_0_i[cur_floor] = "Nothing";
+                        Game_Manager(1);
+                    }
+                }
+
+                if(cur_spot == 2) {
+                    if(gm_tower_obj_1_i[cur_floor] == "Nothing") {
+                        //do nothing or kill it with fire according to nick idefka!!!!
+                        Encounter_Meter(1);
+                    }
+
+                    if(gm_tower_obj_1_i[cur_floor] == "Coin") {
+                        if(gm_difficulty == 1) {
+                            player.coin += 1;
+                            player.score += 5;
+                            gm_tower_obj_1_i[cur_floor] = "Nothing";
+                            Encounter_Meter(1);
+                        }
+
+                        if(gm_difficulty == 2) {
+                            player.coin += 2;
+                            player.score += 10;
+                            gm_tower_obj_1_i[cur_floor] = "Nothing";
+                            Encounter_Meter(1);
+                        }
+
+                        if(gm_difficulty == 3) {
+                            var xxx1 = Math.floor((Math.random() * 10));
+                            var xxx2 = xxx1 * 5;
+                            player.coin += xxx1;
+                            player.score += xxx2;
+                            gm_tower_obj_1_i[cur_floor] = "Nothing";
+                            Encounter_Meter(1);
+                        }
+                    }
+
+                    if(gm_tower_obj_1_i[cur_floor] == "Food") {
+                        if(gm_difficulty == 1) {
+                            player.food += 1;
+                            player.score += 15;
+                            gm_tower_obj_1_i[cur_floor] = "Nothing";
+                            Encounter_Meter(1);
+                        }
+
+                        if(gm_difficulty == 2) {
+                            player.food += 2;
+                            player.score += 30;
+                            gm_tower_obj_1_i[cur_floor] = "Nothing";
+                            Encounter_Meter(1);
+                        }
+
+                        if(gm_difficulty == 3) {
+                            var xxx1 = Math.floor((Math.random() * 5));
+                            var xxx2 = xxx1 * 15;
+                            player.food += xxx1;
+                            player.score += xxx2;
+                            gm_tower_obj_1_i[cur_floor] = "Nothing";
+                            Encounter_Meter(1);
+                        }
+                    }
+
+                    if(gm_tower_obj_1_i[cur_floor] == "Armour") {
+                        if(player.has_armour == 0) {
+                            player.has_armour = 1;
+                            player.cur_armour = 5;
+                            player.max_armour = 5;
+                        }
+
+                        if(player.has_armour != 0) {
+                            player.has_armour = 5;
+                        }
+
+                        gm_tower_obj_1_i[cur_floor] = "Nothing";
+                        Encounter_Meter(1);
+                    }
+
+                    if(gm_tower_obj_1_i[cur_floor] == "Weapon") {
+                        var yy1 = Math.floor((Math.random() * obj_weapon_id.length));
+                        player.wpn_found = yy1;
+                        gm_tower_obj_1_i[cur_floor] = "Nothing";
+                        Game_Manager(6);
+                    }
+
+                    if(gm_tower_obj_1_i[cur_floor] == "Key") {
+                        player.has_key = 1;
+                        gm_tower_obj_1_i[cur_floor] = "Nothing";
+                        Game_Manager(1);
+                    }
+                }
+
+                if(cur_spot == 3) {
+                    if(gm_tower_obj_2_i[cur_floor] == "Nothing") {
+                        //do nothing or kill it with fire according to nick idefka!!!!
+                        Encounter_Meter(1);
+                    }
+
+                    if(gm_tower_obj_2_i[cur_floor] == "Coin") {
+                        if(gm_difficulty == 1) {
+                            player.coin += 1;
+                            player.score += 5;
+                            gm_tower_obj_2_i[cur_floor] = "Nothing";
+                            Encounter_Meter(1);
+                        }
+
+                        if(gm_difficulty == 2) {
+                            player.coin += 2;
+                            player.score += 10;
+                            gm_tower_obj_2_i[cur_floor] = "Nothing";
+                            Encounter_Meter(1);
+                        }
+
+                        if(gm_difficulty == 3) {
+                            var xxx1 = Math.floor((Math.random() * 10));
+                            var xxx2 = xxx1 * 5;
+                            player.coin += xxx1;
+                            player.score += xxx2;
+                            gm_tower_obj_2_i[cur_floor] = "Nothing";
+                            Encounter_Meter(1);
+                        }
+                    }
+
+                    if(gm_tower_obj_2_i[cur_floor] == "Food") {
+                        if(gm_difficulty == 1) {
+                            player.food += 1;
+                            player.score += 15;
+                            gm_tower_obj_2_i[cur_floor] = "Nothing";
+                            Encounter_Meter(1);
+                        }
+
+                        if(gm_difficulty == 2) {
+                            player.food += 2;
+                            player.score += 30;
+                            gm_tower_obj_2_i[cur_floor] = "Nothing";
+                            Encounter_Meter(1);
+                        }
+
+                        if(gm_difficulty == 3) {
+                            var xxx1 = Math.floor((Math.random() * 5));
+                            var xxx2 = xxx1 * 15;
+                            player.food += xxx1;
+                            player.score += xxx2;
+                            gm_tower_obj_2_i[cur_floor] = "Nothing";
+                            Encounter_Meter(1);
+                        }
+                    }
+
+                    if(gm_tower_obj_2_i[cur_floor] == "Armour") {
+                        if(player.has_armour == 0) {
+                            player.has_armour = 1;
+                            player.cur_armour = 5;
+                            player.max_armour = 5;
+                        }
+
+                        if(player.has_armour != 0) {
+                            player.has_armour = 5;
+                        }
+
+                        gm_tower_obj_2_i[cur_floor] = "Nothing";
+                        Encounter_Meter(1);
+                    }
+
+                    if(gm_tower_obj_2_i[cur_floor] == "Weapon") {
+                        var yy1 = Math.floor((Math.random() * obj_weapon_id.length));
+                        player.wpn_found = yy1;
+                        gm_tower_obj_2_i[cur_floor] = "Nothing";
+                        Game_Manager(6);
+                    }
+
+                    if(gm_tower_obj_2_i[cur_floor] == "Key") {
+                        player.has_key = 1;
+                        gm_tower_obj_2_i[cur_floor] = "Nothing";
+                        Game_Manager(1);
+                    }
+                }
+
+                if(cur_spot == 4) {
+                    if(gm_tower_obj_3_i[cur_floor] == "Nothing") {
+                        //do nothing or kill it with fire according to nick idefka!!!!
+                        Encounter_Meter(1);
+                    }
+
+                    if(gm_tower_obj_3_i[cur_floor] == "Coin") {
+                        if(gm_difficulty == 1) {
+                            player.coin += 1;
+                            player.score += 5;
+                            gm_tower_obj_3_i[cur_floor] = "Nothing";
+                            Encounter_Meter(1);
+                        }
+
+                        if(gm_difficulty == 2) {
+                            player.coin += 2;
+                            player.score += 10;
+                            gm_tower_obj_3_i[cur_floor] = "Nothing";
+                            Encounter_Meter(1);
+                        }
+
+                        if(gm_difficulty == 3) {
+                            var xxx1 = Math.floor((Math.random() * 10));
+                            var xxx2 = xxx1 * 5;
+                            player.coin += xxx1;
+                            player.score += xxx2;
+                            gm_tower_obj_3_i[cur_floor] = "Nothing";
+                            Encounter_Meter(1);
+                        }
+                    }
+
+                    if(gm_tower_obj_2_i[cur_floor] == "Food") {
+                        if(gm_difficulty == 1) {
+                            player.food += 1;
+                            player.score += 15;
+                            gm_tower_obj_3_i[cur_floor] = "Nothing";
+                            Encounter_Meter(1);
+                        }
+
+                        if(gm_difficulty == 2) {
+                            player.food += 2;
+                            player.score += 30;
+                            gm_tower_obj_3_i[cur_floor] = "Nothing";
+                            Encounter_Meter(1);
+                        }
+
+                        if(gm_difficulty == 3) {
+                            var xxx1 = Math.floor((Math.random() * 5));
+                            var xxx2 = xxx1 * 15;
+                            player.food += xxx1;
+                            player.score += xxx2;
+                            gm_tower_obj_3_i[cur_floor] = "Nothing";
+                            Encounter_Meter(1);
+                        }
+                    }
+
+                    if(gm_tower_obj_3_i[cur_floor] == "Armour") {
+                        if(player.has_armour == 0) {
+                            player.has_armour = 1;
+                            player.cur_armour = 5;
+                            player.max_armour = 5;
+                        }
+
+                        if(player.has_armour != 0) {
+                            player.has_armour = 5;
+                        }
+
+                        gm_tower_obj_3_i[cur_floor] = "Nothing";
+                        Encounter_Meter(1);
+                    }
+
+                    if(gm_tower_obj_3_i[cur_floor] == "Weapon") {
+                        var yy1 = Math.floor((Math.random() * obj_weapon_id.length));
+                        player.wpn_found = yy1;
+                        gm_tower_obj_3_i[cur_floor] = "Nothing";
+                        Game_Manager(6);
+                    }
+
+                    if(gm_tower_obj_3_i[cur_floor] == "Key") {
+                        player.has_key = 1;
+                        gm_tower_obj_3_i[cur_floor] = "Nothing";
+                        Game_Manager(1);
+                    }
+                }
+
+            }
+        }
+
+        function Wpn_Swap() {
+            /*
+            var yy1 = Math.floor((Math.random() * obj_weapon_id.length));
+            player.cur_weapon = obj_weapon_name_id[yy1];
+            player.wpn_dmg = obj_weapon_damage_n[yy1];
+            player.wpn_cool_dwn = obj_weapon_damage_c[yy1];
+            player.weapon_id = yy1;
+            */
+            player.cur_weapon = obj_weapon_name_id[player.wpn_found];
+            player.wpn_dmg = obj_weapon_damage_n[player.wpn_found];
+            player.wpn_cool_dwn = obj_weapon_damage_c[player.wpn_found];
+            player.weapon_id = player.wpn_found;
+            UIX(3);
         }
 
         function GM_Disturb() {
@@ -829,6 +1236,7 @@
 
                 if(loadin == 3) {
                     document.getElementById("rpg_window_confirmation").style.display = "none";
+                    document.getElementById("bttn_confirm_ok").style.display = "block";
                 }
             }
         }
@@ -1027,7 +1435,7 @@
                     <h3 id="output_title">The Story Begins!</h3>
 					<p id="output">text output goes here...</p>
 					<br>
-					<button onclick="UIX(3)">OK</button>
+					<button id="bttn_confirm_ok" onclick="UIX(3)">OK</button>
 				</div>
 			
 			</div>

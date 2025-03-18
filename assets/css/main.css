@@ -101,15 +101,25 @@ body {
     padding: 12px;
 }
 
+.tower_test {
+    content: url("../img/tower/room.png");
+}
+
 
 .player {
     content: url("../img/npc/sprite_tiny.png");
 }
 
+.Nothing {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/none.png");
+}
+
 .Nothing.undefined {
     width: 32px;
     height: 32px;
-
+    content: url("../img/obj/none.png");
 }
 
 .Door.undefined {
@@ -121,17 +131,17 @@ body {
 .Nothing.Closed {
     width: 32px;
     height: 32px;
-    
+    content: url("../img/obj/none.png");
 }
 
 .Nothing.Open {
     width: 32px;
     height: 32px;
-    
+    content: url("../img/obj/none.png");
 }
 
 .Nothing.Smashed {
     width: 32px;
     height: 32px;
-    
+    content: url("../img/obj/none.png");
 }

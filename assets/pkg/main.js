@@ -58,6 +58,7 @@ var ent_boss_points_d = [250,500,750,1000];
 
 var isdevmode = 0;
 var isinbattle = 0;
+var ismobile = 0;
 
 var enemy_speed = 2000;
 let intervaltest = setInterval(Enemy_Attack(), enemy_speed);
@@ -429,38 +430,55 @@ function UI_Load_Map() {
 
     document.getElementById("floor_map").innerHTML = "<img id='spot0' class='plyr_spot'> "+ "<img id='spot1' class='plyr_spot'>" + "<img class='" + gm_tower_obj_0[cur_floor] + " " + obj_types_names_st[gm_tower_obj_0_a[cur_floor]] + "'>" + "<img id='spot2' class='plyr_spot'> " + "<img class='" + gm_tower_obj_1[cur_floor] + " " + obj_types_names_st[gm_tower_obj_1_a[cur_floor]] + "'>"  + "<img id='spot3' class='plyr_spot'> " + "<img class='" + gm_tower_obj_2[cur_floor] + " " + obj_types_names_st[gm_tower_obj_2_a[cur_floor]] + "'>"  + "<img id='spot4' class='plyr_spot'> " + "<img class='" + gm_tower_obj_3[cur_floor] + " " + obj_types_names_st[gm_tower_obj_3_a[cur_floor]] + "'>"  + " ";
         
-    document.getElementById("spot0").classList.add("blank");
-    document.getElementById("spot1").classList.add("blank");
-    document.getElementById("spot2").classList.add("blank");
-    document.getElementById("spot3").classList.add("blank");
-    document.getElementById("spot4").classList.add("blank");
+    document.getElementById("spot0").classList.add("Nothing");
+    document.getElementById("spot1").classList.add("Nothing");
+    document.getElementById("spot2").classList.add("Nothing");
+    document.getElementById("spot3").classList.add("Nothing");
+    document.getElementById("spot4").classList.add("Nothing");
 
     if(cur_spot == 0) {
         document.getElementById("spot0").classList.add("player");
+        document.getElementById("spot0").classList.remove("Nothing");
     }
 
     if(cur_spot == 1) {
         document.getElementById("spot1").classList.add("player");
+        document.getElementById("spot1").classList.remove("Nothing");
     }
 
     if(cur_spot == 2) {
         document.getElementById("spot2").classList.add("player");
+        document.getElementById("spot2").classList.remove("Nothing");
     }
 
     if(cur_spot == 3) {
         document.getElementById("spot3").classList.add("player");
+        document.getElementById("spot3").classList.remove("Nothing");
     }
 
     if(cur_spot == 4) {
         document.getElementById("spot4").classList.add("player");
+        document.getElementById("spot4").classList.remove("Nothing");
     }
+
+    if(ismobile != 0) {
     
-    if(cur_spot != 0) {
-        document.getElementById("com_up").disabled = true;
-        document.getElementById("com_dwn").disabled = true;
-    } else {
-        document.getElementById("com_up").disabled = false;
-        document.getElementById("com_dwn").disabled = false;
+        if(cur_spot != 0) {
+            document.getElementById("com_up").disabled = true;
+            document.getElementById("com_dwn").disabled = true;
+        } else {
+            document.getElementById("com_up").disabled = false;
+            document.getElementById("com_dwn").disabled = false;
+        }
+    }
+
+    if(ismobile == 0) {
+        document.getElementById("com_up").style.display = "none";
+        document.getElementById("com_dwn").style.display = "none";
+        document.getElementById("com_lft").style.display = "none";
+        document.getElementById("com_rht").style.display = "none";
+        document.getElementById("com_opn").style.display = "none";
+        document.getElementById("com_smh").style.display = "none";
     }
 
 

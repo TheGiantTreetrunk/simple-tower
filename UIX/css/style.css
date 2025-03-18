@@ -1,5 +1,5 @@
 :root {
-    --bg-image: url('../img/bg3.png');
+    --bg-image: url('../../assets/img/uix/sprite_brick_dark.png');
 }
 
 @font-face {
@@ -271,4 +271,36 @@ button:disabled {
 .task_window_content_label{
 	background-color: #fff;
 	text-align: center;
+}
+
+#scene_tower_config {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 80%;
+	height: 75%;
+	border: 3px solid black;
+	background-color: #fff;
+	box-shadow: 10px 10px;
+}
+
+#scene_encounter {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 80%;
+	height: 75%;
+	border: 3px solid black;
+	background-color: #fff;
+	box-shadow: 10px 10px;
+}
+
+#scene_level {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	
 }

@@ -16,9 +16,8 @@
 
         <div class="topnav_top">
             <a class="active" href="#home" style="padding: 1px 8px"><div id="sprite_rose_uix_taskbar_icon"></div></a>
-			<a id="">File</a>
-            <a id="">View</a>
-            <a id="">Edit</a>
+			<a id="floor"></a>
+            <a id="score"></a>
 			
 		</div>
 			
@@ -47,69 +46,53 @@
 
         <br>
         <br>
-
-
-
-        <div id="game_section_game_manager" class="task_window">
-            <div id="" class="task_window_title_bar">
-                <h3 class="task_window_title_bar_name" style="margin-top: 0px;margin-bottom: 0px;">Game</h3>
-            </div>
-			<div id="" class="task_window_content">
 				
-                    <div id="scene_tower_config">
-                        <h1>Simple Tower</h1>
-                        Tower Size: <input type="number" id="tower_size" value="10" min="5" max="12"> (min 5 levels, max 12 levels!)
-                        <br>
-                        Difficulty: <input type="number" id="difficulty" value="2" min="1" max="3"> (lower the value the easier, higher the value the more difficult!)
-                        <br>
-                        <br>
-                        <button id="tower_generator" onclick="start_game()">Generate</button>
-                    </div>
+        <div id="scene_tower_config">
+            <h1>Simple Tower</h1>
+            Tower Size: <input type="number" id="tower_size" value="10" min="5" max="12"> (min 5 levels, max 12 levels!)
+            <br>
+            Difficulty: <input type="number" id="difficulty" value="2" min="1" max="3"> (lower the value the easier, higher the value the more difficult!)
+            <br>
+            <br>
+            <button id="tower_generator" onclick="start_game()">Generate</button>
+        </div>
             
-                    <div id="scene_level">
-                        <h4 id="score">Score: 0</h4>
-                        <p id="floor">Floor: 0</p>
-                        
-                        <img id="health">
-                        <img id="weapon">
-                        <img id="armour">
-                        
-                        <div id="map_scene">
-                            <img id="bgimg">
-                            <p id="floor_map"># @ X X X X</p>
-                        </div>
-                        <br>
-                        <br>
-                        <button id="com_up" onclick="Game_Command(1)">Up</button>
-                        <button id="com_dwn" onclick="Game_Command(2)">Down</button>
-                        <button id="com_lft" onclick="Game_Command(4)">Left</button>
-                        <button id="com_rht" onclick="Game_Command(3)">Right</button>
-                        <button onclick="Game_Command(5)">Open</button>
-                        <button onclick="Game_Command(6)">Smash</button>
-                    </div>
-            
-                    <div id="scene_encounter">
-                        <h4>Encounter</h4>
-                        <p id="enemy_id_text">A Ghost appears...</p>
-                        <br>
-                        <img id="enc_plyr_icn" class="plyr_spot">
-                        <p id="plyr_hth">10/10</p>
-                        <p id="plyr_amr">5/5</p>
-                        <br>
-                        <img id="enc_enmy_icn" class="plyr_spot">
-                        <p id="enmy_hth">5/5</p>
-                        <p id="enmy_amr">0/0</p>
-                        <button id="plyr_slap_name" class="bttl_ctl" onclick="Encounter(4)">Fists</button>
-                        <button id="plyr_weapon_name" class="bttl_ctl" onclick="Encounter(2)">Axe</button>
-                        <button id="plyr_armor_name" class="bttl_ctl" onclick="Encounter(5)">stun</button>
-                        <button id="plyr_heal_name" class="bttl_ctl" onclick="Encounter(3)">heal</button>
-                    </div>
+        <div id="scene_encounter">
+            <h4>Encounter</h4>
+            <p id="enemy_id_text">A Ghost appears...</p>
+            <br>
+            <img id="enc_plyr_icn" class="plyr_spot">
+            <p id="plyr_hth">10/10</p>
+            <p id="plyr_amr">5/5</p>
+            <br>
+            <img id="enc_enmy_icn" class="plyr_spot">
+            <p id="enmy_hth">5/5</p>
+            <p id="enmy_amr">0/0</p>
+            <button id="plyr_slap_name" class="bttl_ctl" onclick="Encounter(4)">Fists</button>
+            <button id="plyr_weapon_name" class="bttl_ctl" onclick="Encounter(2)">Axe</button>
+            <button id="plyr_armor_name" class="bttl_ctl" onclick="Encounter(5)">stun</button>
+            <button id="plyr_heal_name" class="bttl_ctl" onclick="Encounter(3)">heal</button>
+        </div>
 					
-						
-				
-						
-			</div>
-		</div>
+        <div id="scene_level">
+                        
+            <img id="health">
+            <img id="weapon">
+            <img id="armour">
+            
+            <div id="map_scene">
+                <img id="bgimg">
+                <p id="floor_map"># @ X X X X</p>
+            </div>
+            <br>
+            <br>
+            <button id="com_up" onclick="Game_Command(1)">Up</button>
+            <button id="com_dwn" onclick="Game_Command(2)">Down</button>
+            <button id="com_lft" onclick="Game_Command(4)">Left</button>
+            <button id="com_rht" onclick="Game_Command(3)">Right</button>
+            <button id="com_opn" onclick="Game_Command(5)">Open</button>
+            <button id="com_smh" onclick="Game_Command(6)">Smash</button>
+        </div>
 
 
     </body>

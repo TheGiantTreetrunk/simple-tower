@@ -1,0 +1,137 @@
+#map_scene {
+    width: 384px;
+    height: 128px;
+    border: 1px solid black;
+    box-shadow: 10px 10px;	
+    overflow: none;
+    position: relative; 
+}
+
+#bgimg {
+    width: 384px;
+    height: 128px;
+    z-index: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#floor_map {
+    position: absolute;
+    bottom: 10px;
+    left: 40px;
+}
+
+img {
+    image-rendering: pixelated;
+}
+.plyr_spot {
+    width: 32px;
+    height: 32px;
+    z-index: 1;
+}
+
+.Ladder {
+    width: 32px;
+    height: 32px;
+    z-index: 1;
+    background-color: #000000;
+}
+
+.Nothing {
+    width: 32px;
+    height: 32px;
+    z-index: 1;
+}
+
+.Chest{
+    width: 32px;
+    height: 32px;
+    z-index: 1;
+}
+
+.Barrel {
+    width: 32px;
+    height: 32px;
+    z-index: 1;
+}
+
+#health {
+    width: 32px;
+    height: 32px;
+    border: 1px solid black;
+    background-color: blue;
+}
+
+#weapon {
+    width: 32px;
+    height: 32px;
+    border: 1px solid black;
+    background-color: green;
+}
+
+#armour {
+    width: 32px;
+    height: 32px;
+    border: 1px solid black;
+    background-color: red;
+}
+
+#bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-repeat: repeat;
+    z-index: -1;
+    background-size: 16px 16px;
+}
+
+#terminal_border {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    bottom: 10px;
+    left: 10px;
+    border: 3px solid black;
+    pointer-events: none;
+    background-color: #ffffff;
+    z-index: -1;
+}
+body {
+    padding: 12px;
+}
+
+
+.player {
+    content: url("../img/npc/sprite_tiny.png");
+}
+
+.Nothing.undefined {
+    width: 32px;
+    height: 32px;
+
+}
+
+.Door.undefined {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/sprite_door_1.png");
+}
+
+.Nothing.Closed {
+    width: 32px;
+    height: 32px;
+    
+}
+
+.Nothing.Open {
+    width: 32px;
+    height: 32px;
+    
+}
+
+.Nothing.Smashed {
+    width: 32px;
+    height: 32px;
+    
+}

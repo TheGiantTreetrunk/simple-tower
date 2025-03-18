@@ -1113,6 +1113,12 @@ function Enemy_Attack() {
 function UIX(loadin) {
     if(isdevmode == 0) {
         //document.getElementById("bg").src = bg;
+        var w = window.innerWidth;
+        var h = window.innerHeight;
+
+        if(w <= 480) {
+            ismobile = 1;
+        }
 
         if(loadin == 0) {
             document.getElementById("scene_tower_config").style.display = "block";

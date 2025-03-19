@@ -13,18 +13,6 @@
 
     </head>
     <body class="body_desktop" onload="UIX(0)" onkeydown="keydownFunction()" onkeyup="keyupFunction()">
-
-        <div class="topnav_top">
-            <a class="active" href="#home" style="padding: 1px 8px"><div id="sprite_rose_uix_taskbar_icon"></div></a>
-			<a id="floor"></a>
-            <a id="score"></a>
-			
-		</div>
-			
-		<div class="topnav_btm">
-			<a id=""></a>
-			
-		</div>
         
         <div id="rpg_window_confirmation">
 		
@@ -74,11 +62,26 @@
             <button id="plyr_heal_name" class="bttl_ctl" onclick="Encounter(3)">heal</button>
         </div>
 					
+
+        <div id="scene_menu_bars_level">
+            <div class="topnav_top">
+                <a class="active" href="#home" style="padding: 1px 8px"><div id="sprite_rose_uix_taskbar_icon"></div></a>
+                <a id="floor"></a>
+                <a id="score"></a>
+                
+            </div>
+                
+            <div class="topnav_btm">
+                <center>
+                    <img id="health">
+                    <img id="weapon">
+                    <img id="armour">
+                </center>
+            </div>
+
+        </div>
+
         <div id="scene_level">
-                        
-            <img id="health">
-            <img id="weapon">
-            <img id="armour">
             
             <div id="map_scene">
                 <img id="bgimg">

@@ -8,7 +8,7 @@
 }
 
 #bgimg {
-    width: 384px;
+    width: 416px;
     height: 128px;
     z-index: 0;
     position: absolute;
@@ -19,7 +19,7 @@
 #floor_map {
     position: absolute;
     bottom: 10px;
-    left: 40px;
+    left: 32px;
 }
 
 img {
@@ -144,4 +144,346 @@ body {
     width: 32px;
     height: 32px;
     content: url("../img/obj/none.png");
+}
+
+.Chest.Closed {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/sprite_chest.png");
+}
+
+.Chest.Open {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/sprite_chest_opened.png");
+}
+
+.Chest.Smashed {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/smashed.png");
+}
+
+.Barrel.Closed {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/sprite_barrels.png");
+}
+
+.Barrel.Open {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/sprite_barrels_opened.png");
+}
+
+.Barrel.Smashed {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/smashed.png");
+}
+
+.Anvil.Closed {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/sprite_anvil.png");
+}
+
+.Anvil.Open {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/sprite_anvil.png");
+}
+
+.Anvil.Smashed {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/smashed.png");
+}
+
+.Bookshelf.Closed {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/sprite_bookshelf.png");
+}
+
+.Bookshelf.Open {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/sprite_bookshelf.png");
+}
+
+.Bookshelf.Smashed {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/smashed.png");
+}
+
+.Clock.Closed {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/sprite_clock.png");
+}
+
+.Clock.Open {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/sprite_clock.png");
+}
+
+.Clock.Smashed {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/smashed.png");
+}
+
+.Dresser.Closed {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/sprite_dresser.png");
+}
+
+.Dresser.Open {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/sprite_dresser.png");
+}
+
+.Dresser.Smashed {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/smashed.png");
+}
+
+.Wardrobe.Closed {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/sprite_dresser_mirror.png");
+}
+
+.Wardrobe.Open {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/sprite_dresser_mirror.png");
+}
+
+.Wardrobe.Smashed {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/smashed.png");
+}
+
+.Fireplace.Closed {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/sprite_fireplace.png");
+}
+
+.Fireplace.Open {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/sprite_fireplace.png");
+}
+
+.Fireplace.Smashed {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/smashed.png");
+}
+
+.Globe.Closed {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/sprite_globe.png");
+}
+
+.Globe.Open {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/sprite_globe.png");
+}
+
+.Globe.Smashed {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/smashed.png");
+}
+
+.Guillotine.Closed {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/sprite_guillotine.png");
+}
+
+.Guillotine.Open {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/sprite_guillotine.png");
+}
+
+.Guillotine.Smashed {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/smashed.png");
+}
+
+.Keg.Closed {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/sprite_keg.png");
+}
+
+.Keg.Open {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/sprite_keg.png");
+}
+
+.Keg.Smashed {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/smashed.png");
+}
+
+.Lecturn.Closed {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/sprite_lecturn.png");
+}
+
+.Lecturn.Open {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/sprite_lecturn.png");
+}
+
+.Lecturn.Smashed {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/smashed.png");
+}
+
+.Telescope.Closed {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/sprite_li_recon_icon.png");
+}
+
+.Telescope.Open {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/sprite_li_recon_icon.png");
+}
+
+.Telescope.Smashed {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/smashed.png");
+}
+
+.Vase.Closed {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/sprite_li_water_icon.png");
+}
+
+.Vase.Open {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/sprite_li_water_icon.png");
+}
+
+.Vase.Smashed {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/smashed.png");
+}
+
+.Mirror.Closed {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/sprite_mirror.png");
+}
+
+.Mirror.Open {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/sprite_mirror.png");
+}
+
+.Mirror.Smashed {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/smashed.png");
+}
+
+.Pillar.Closed {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/sprite_pillar_flame_2.png");
+}
+
+.Pillar.Open {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/sprite_pillar_flame_2.png");
+}
+
+.Pillar.Smashed {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/smashed.png");
+}
+
+.Table.Closed {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/sprite_small_desk_with_vase.png");
+}
+
+.Table.Open {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/sprite_small_desk_with_vase.png");
+}
+
+.Table.Smashed {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/smashed.png");
+}
+
+.Pillory.Closed {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/sprite_pillory.png");
+}
+
+.Pillory.Open {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/sprite_pillory.png");
+}
+
+.Pillory.Smashed {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/smashed.png");
+}
+
+.Stove.Closed {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/sprite_stove.png");
+}
+
+.Stove.Open {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/sprite_stove.png");
+}
+
+.Stove.Smashed {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/smashed.png");
 }

@@ -1125,18 +1125,21 @@ function UIX(loadin) {
             document.getElementById("scene_level").style.display = "none";
             document.getElementById("scene_encounter").style.display = "none";
             document.getElementById("rpg_window_confirmation").style.display = "none";
+            document.getElementById("scene_menu_bars_level").style.display = "none";
         }
 
         if(loadin == 1) {
             document.getElementById("scene_tower_config").style.display = "none";
             document.getElementById("scene_level").style.display = "block";
             document.getElementById("scene_encounter").style.display = "none";
+            document.getElementById("scene_menu_bars_level").style.display = "block";
         }
 
         if(loadin == 2) {
             document.getElementById("scene_tower_config").style.display = "none";
             document.getElementById("scene_level").style.display = "none";
             document.getElementById("scene_encounter").style.display = "block";
+            document.getElementById("scene_menu_bars_level").style.display = "none";
         }
 
         if(loadin == 3) {

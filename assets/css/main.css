@@ -18,7 +18,7 @@
 
 #floor_map {
     position: absolute;
-    bottom: 10px;
+    bottom: 12px;
     left: 32px;
 }
 
@@ -123,6 +123,18 @@ body {
 }
 
 .Door.undefined {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/sprite_door_1.png");
+}
+
+.Door.Closed {
+    width: 32px;
+    height: 32px;
+    content: url("../img/obj/sprite_door_1.png");
+}
+
+.Door.Open {
     width: 32px;
     height: 32px;
     content: url("../img/obj/sprite_door_1.png");
@@ -486,4 +498,82 @@ body {
     width: 32px;
     height: 32px;
     content: url("../img/obj/smashed.png");
+}
+
+.Ghost{
+    width: 32px;
+    height: 32px;
+    content: url("../img/npc/sprite_ghost_1.png");
+}
+
+.Snake{
+    width: 32px;
+    height: 32px;
+    content: url("../img/npc/sprite_snake.png");
+}
+
+.Glarb{
+    width: 32px;
+    height: 32px;
+    content: url("../img/npc/sprite_glarb.png");
+}
+
+.Serpant{
+    width: 32px;
+    height: 32px;
+    content: url("../img/npc/sprite_serpant.png");
+}
+
+.Dragon{
+    width: 32px;
+    height: 32px;
+    content: url("../img/npc/sprite_dragon.png");
+}
+
+.Duck{
+    width: 32px;
+    height: 32px;
+    content: url("../img/npc/sprite_duck.png");
+}
+
+.Ember{
+    width: 32px;
+    height: 32px;
+    content: url("../img/npc/sprite_ember.png");
+}
+
+.Goblin{
+    width: 32px;
+    height: 32px;
+    content: url("../img/npc/sprite_goblin.png");
+}
+
+.Grable{
+    width: 32px;
+    height: 32px;
+    content: url("../img/npc/sprite_grable.png");
+}
+
+.Octopus{
+    width: 32px;
+    height: 32px;
+    content: url("../img/npc/sprite_octopus.png");
+}
+
+.Ooze{
+    width: 32px;
+    height: 32px;
+    content: url("../img/npc/sprite_rock_ent.png");
+}
+
+.Skeleton{
+    width: 32px;
+    height: 32px;
+    content: url("../img/npc/sprite_skeleton.png");
+}
+
+.Toad{
+    width: 32px;
+    height: 32px;
+    content: url("../img/npc/sprites_toad.png");
 }

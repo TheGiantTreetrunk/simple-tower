@@ -247,12 +247,12 @@ function Generate_Tower() {
     gm_tower_obj_0[0] = obj_types_names_id[0];
     gm_tower_obj_1[0] = obj_types_names_id[0];
     gm_tower_obj_2[0] = obj_types_names_id[0];
-    gm_tower_obj_3[0] = obj_types_names_id[0];
     gm_tower_map[tot_floors] = 'b';
     gm_tower_obj_0[tot_floors] = obj_types_names_id[0];
     gm_tower_obj_1[tot_floors] = obj_types_names_id[0];
     gm_tower_obj_2[tot_floors] = "Door";
     gm_tower_obj_3[tot_floors] = obj_types_names_id[0];
+    gm_tower_obj_3[0] = "Door";
 
     /*After it overrides everything, we will focus on what the player gets for a weapon as well...*/
     var yy1 = Math.floor((Math.random() * obj_weapon_id.length));
@@ -981,6 +981,7 @@ function Encounter(modes) {
             if(player.cur_health <= 0) {
                 //game over...
                 alert("game over! you lose the game!!!!!");
+                document.getElementById("enc_enmy_icn").classList.remove(enemy.id);
                 isinbattle = 0;
                 UIX(0);
             }
@@ -992,6 +993,7 @@ function Encounter(modes) {
                     alert("you defeated the enemy! round won!!!");
                     //clearInterval(enemy_timeout);
                     isinbattle = 0;
+                    document.getElementById("enc_enmy_icn").classList.remove(enemy.id);
                     UI_Load_Map();
                     UIX(1);
 

@@ -37,7 +37,7 @@ var obj_items_names_id = ["Nothing","Food","Weapon","Armour","Coin","Food","Food
 var obj_items_perks_n = [0,2,1,2,2];
 
 var obj_weapon_id = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
-var obj_weapon_name_id = ["Sword","Axe","Club","Dual Swords","Frying Pan","Hockey Stick","Hoe","Maul","Morning Star","Pickle Fork","Pitch Fork","Rake","Scythe","Trident","War Hammer"];
+var obj_weapon_name_id = ["Sword","Axe","Club","Skylas","Pan","HockeyStick","Hoe","Maul","Spikey","Prong","Pitchfork","Rake","Scythe","Trident","Sledgehammer"];
 var obj_weapon_damage_n = [4,3,2,8,5,7,3,5,9,3,3,3,6,8,12];
 var obj_weapon_damage_c = [3000,2000,1000,6000,3000,3000,2000,5000,5000,3000,3000,2000,4000,4000,6000];
 var obj_weapon_damage_a = [2,2,1];
@@ -292,132 +292,134 @@ function Generate_Tower() {
 }
 
 function Game_Command(com) {
-    if(com == 1) {
-        /*Up Command*/
-        if(cur_floor != (tot_floors - 1)) {
-            if(cur_spot == 0) {
-                if(cur_floor != tot_floors) {
-                    cur_floor += 1;
-                }
-            }
-        } else {
-            if(player.has_key == 1) {
+    if(isinbattle == 0) {
+        if(com == 1) {
+            /*Up Command*/
+            if(cur_floor != (tot_floors - 1)) {
                 if(cur_spot == 0) {
-                    cur_floor += 1;
+                    if(cur_floor != tot_floors) {
+                        cur_floor += 1;
+                    }
                 }
             } else {
-                Game_Manager(5);
+                if(player.has_key == 1) {
+                    if(cur_spot == 0) {
+                        cur_floor += 1;
+                    }
+                } else {
+                    Game_Manager(5);
+                }
             }
         }
-    }
 
-    if(com == 2) {
-        /*Down Command*/
-        if(cur_floor != 0) {
-            if(cur_spot == 0) {
-                cur_floor -= 1;
+        if(com == 2) {
+            /*Down Command*/
+            if(cur_floor != 0) {
+                if(cur_spot == 0) {
+                    cur_floor -= 1;
+                }
             }
         }
-    }
 
-    if(com == 3) {
-        /*Right Command*/
-        if(cur_spot != 4) {
-            cur_spot += 1;
+        if(com == 3) {
+            /*Right Command*/
+            if(cur_spot != 4) {
+                cur_spot += 1;
+            }
         }
-    }
 
-    if(com == 4) {
-        /*Left Command*/
-        if(cur_spot != 0) {
-            cur_spot -= 1;
+        if(com == 4) {
+            /*Left Command*/
+            if(cur_spot != 0) {
+                cur_spot -= 1;
+            }
         }
-    }
 
-    if(com == 5) {
-        /*Open Command*/
-        if(cur_spot != 0) {
-            if(cur_spot == 1) {
-                if(gm_tower_obj_0[cur_floor] != "Nothing") {
-                    if(gm_tower_obj_0_a[cur_floor] != 2) {
-                        gm_tower_obj_0_a[cur_floor] = 1;
-                        Lootable(1);
-                        //Encounter_Meter(1);
+        if(com == 5) {
+            /*Open Command*/
+            if(cur_spot != 0) {
+                if(cur_spot == 1) {
+                    if(gm_tower_obj_0[cur_floor] != "Nothing") {
+                        if(gm_tower_obj_0_a[cur_floor] != 2) {
+                            gm_tower_obj_0_a[cur_floor] = 1;
+                            Lootable(1);
+                            //Encounter_Meter(1);
+                        }
+                    }
+                }
+                if(cur_spot == 2) {
+                    if(gm_tower_obj_1[cur_floor] != "Nothing") {
+                        if(gm_tower_obj_1_a[cur_floor] != 2) {
+                            gm_tower_obj_1_a[cur_floor] = 1;
+                            Lootable(1);
+                            //Encounter_Meter(1);
+                        }
+                    }
+                }
+                if(cur_spot == 3) {
+                    if(gm_tower_obj_2[cur_floor] != "Nothing") {
+                        if(gm_tower_obj_2_a[cur_floor] != 2) {
+                            gm_tower_obj_2_a[cur_floor] = 1;
+                            Lootable(1);
+                            //Encounter_Meter(1);
+                        }
+                    }
+                }
+                if(cur_spot == 4) {
+                    if(gm_tower_obj_3[cur_floor] != "Nothing") {
+                        if(gm_tower_obj_3_a[cur_floor] != 2) {
+                            gm_tower_obj_3_a[cur_floor] = 1;
+                            Lootable(1);
+                            //Encounter_Meter(1);
+                        }
                     }
                 }
             }
-            if(cur_spot == 2) {
-                if(gm_tower_obj_1[cur_floor] != "Nothing") {
-                    if(gm_tower_obj_1_a[cur_floor] != 2) {
-                        gm_tower_obj_1_a[cur_floor] = 1;
-                        Lootable(1);
-                        //Encounter_Meter(1);
-                    }
-                }
-            }
-            if(cur_spot == 3) {
-                if(gm_tower_obj_2[cur_floor] != "Nothing") {
-                    if(gm_tower_obj_2_a[cur_floor] != 2) {
-                        gm_tower_obj_2_a[cur_floor] = 1;
-                        Lootable(1);
-                        //Encounter_Meter(1);
-                    }
-                }
-            }
-            if(cur_spot == 4) {
-                if(gm_tower_obj_3[cur_floor] != "Nothing") {
-                    if(gm_tower_obj_3_a[cur_floor] != 2) {
-                        gm_tower_obj_3_a[cur_floor] = 1;
-                        Lootable(1);
-                        //Encounter_Meter(1);
-                    }
-                }
-            }
+            //GM_Disturb(0);
         }
-        //GM_Disturb(0);
-    }
 
-    if(com == 6) {
-        /*Smash Command*/
-        if(cur_spot != 0) {
-            if(cur_spot == 1) {
-                if(gm_tower_obj_0[cur_floor] != "Nothing") {
-                    if(gm_tower_obj_0_a[cur_floor] != 1) {
-                        gm_tower_obj_0_a[cur_floor] = 2;
-                        Lootable(2);
-                        //Encounter_Meter(2);
+            if(com == 6) {
+                /*Smash Command*/
+                if(cur_spot != 0) {
+                    if(cur_spot == 1) {
+                        if(gm_tower_obj_0[cur_floor] != "Nothing") {
+                            if(gm_tower_obj_0_a[cur_floor] != 1) {
+                                gm_tower_obj_0_a[cur_floor] = 2;
+                                Lootable(2);
+                                //Encounter_Meter(2);
+                            }
+                        }
+                    }
+                    if(cur_spot == 2) {
+                        if(gm_tower_obj_1[cur_floor] != "Nothing") {
+                            if(gm_tower_obj_1_a[cur_floor] != 1) {
+                                gm_tower_obj_1_a[cur_floor] = 2;
+                                Lootable(2);
+                                //Encounter_Meter(2);
+                            }
+                        }
+                    }
+                    if(cur_spot == 3) {
+                        if(gm_tower_obj_2[cur_floor] != "Nothing") {
+                            if(gm_tower_obj_2_a[cur_floor] != 1) {
+                                gm_tower_obj_2_a[cur_floor] = 2;
+                                Lootable(2);
+                                //Encounter_Meter(2);
+                            }
+                        }
+                    }
+                    if(cur_spot == 4) {
+                        if(gm_tower_obj_3[cur_floor] != "Nothing") {
+                            if(gm_tower_obj_3_a[cur_floor] != 1) {
+                                gm_tower_obj_3_a[cur_floor] = 2;
+                                Lootable(2);
+                                //Encounter_Meter(2);
+                            }
+                        }
                     }
                 }
-            }
-            if(cur_spot == 2) {
-                if(gm_tower_obj_1[cur_floor] != "Nothing") {
-                    if(gm_tower_obj_1_a[cur_floor] != 1) {
-                        gm_tower_obj_1_a[cur_floor] = 2;
-                        Lootable(2);
-                        //Encounter_Meter(2);
-                    }
-                }
-            }
-            if(cur_spot == 3) {
-                if(gm_tower_obj_2[cur_floor] != "Nothing") {
-                    if(gm_tower_obj_2_a[cur_floor] != 1) {
-                        gm_tower_obj_2_a[cur_floor] = 2;
-                        Lootable(2);
-                        //Encounter_Meter(2);
-                    }
-                }
-            }
-            if(cur_spot == 4) {
-                if(gm_tower_obj_3[cur_floor] != "Nothing") {
-                    if(gm_tower_obj_3_a[cur_floor] != 1) {
-                        gm_tower_obj_3_a[cur_floor] = 2;
-                        Lootable(2);
-                        //Encounter_Meter(2);
-                    }
-                }
-            }
+            //GM_Disturb(1);
         }
-        //GM_Disturb(1);
     }
 
     UI_Load_Map();
@@ -429,7 +431,9 @@ function UI_Load_Map() {
     document.getElementById("floor").innerHTML = "Floor: " + cur_floor;
 
     document.getElementById("floor_map").innerHTML = "<img id='spot0' class='plyr_spot'> "+ "<img id='spot1' class='plyr_spot'>" + "<img class='" + gm_tower_obj_0[cur_floor] + " " + obj_types_names_st[gm_tower_obj_0_a[cur_floor]] + "'>" + "<img id='spot2' class='plyr_spot'> " + "<img class='" + gm_tower_obj_1[cur_floor] + " " + obj_types_names_st[gm_tower_obj_1_a[cur_floor]] + "'>"  + "<img id='spot3' class='plyr_spot'> " + "<img class='" + gm_tower_obj_2[cur_floor] + " " + obj_types_names_st[gm_tower_obj_2_a[cur_floor]] + "'>"  + "<img id='spot4' class='plyr_spot'> " + "<img class='" + gm_tower_obj_3[cur_floor] + " " + obj_types_names_st[gm_tower_obj_3_a[cur_floor]] + "'>"  + " ";
-        
+     
+    document.getElementById("plyr_hud").innerHTML = "<img id='health'><img id='weapon'><img id='armour'>";
+
     document.getElementById("spot0").classList.add("Nothing");
     document.getElementById("spot1").classList.add("Nothing");
     document.getElementById("spot2").classList.add("Nothing");
@@ -485,11 +489,19 @@ function UI_Load_Map() {
     document.getElementById("bgimg").classList.add("tower_test");
 
 
-    //var obj_weapon_name_id = ["Sword","Axe","Club","Dual Swords","Frying Pan","Hockey Stick","Hoe","Maul","Morning Star","Pickle Fork","Pitch Fork","Rake","Scythe","Trident","War Hammer"];
+    //var obj_weapon_name_id = ["Sword","Axe","Club","Dual Swords","Pan","HockeyStick","Hoe","Maul","Morning Star","Pickle Fork","Pitch Fork","Rake","Scythe","Trident","War Hammer"];
 
     if(player.has_armour == 0) {
-        //document.getElementById("armour").src = nope;
+        document.getElementById("armour").classList.add("Nope");
     }
+
+    if(player.has_armour == 1) {
+        document.getElementById("armour").classList.add("Shield");
+    }
+
+    document.getElementById("weapon").classList.add(player.cur_weapon);
+
+    document.getElementById("health").classList.add("Health");
 
 }
 

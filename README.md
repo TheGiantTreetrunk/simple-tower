@@ -34,6 +34,7 @@ Running the game in desktop view is reccomended for the time being. Eventually I
 ## Authors
 
   - **Austin Elke** - *Main Author of the project.*
+  - **Dresden Bensmiller** - *Main Game Tester of the project.*
 
 ## License
 

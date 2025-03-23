@@ -1124,6 +1124,46 @@ function Enemy_Attack() {
     }
 }
 
+function Boot() {
+    $("#eng_logo").fadeOut();
+    $("#com_spsh").fadeOut();
+    document.getElementById("eng_logo").style.display = "none";
+    document.getElementById("com_spsh").style.display = "none";
+    document.getElementById("scene_tower_config").style.display = "none";
+    document.getElementById("scene_level").style.display = "none";
+    document.getElementById("scene_encounter").style.display = "none";
+    document.getElementById("rpg_window_confirmation").style.display = "none";
+    document.getElementById("scene_menu_bars_level").style.display = "none";
+
+    const myTimeout = setTimeout(Boot1, 3000);
+}
+
+function Boot1(){
+    $("#eng_logo").fadeIn(2000);
+    document.getElementById("eng_logo").style.display = "block";
+    $("#eng_logo").fadeOut(2000);
+    const myTimeout = setTimeout(Boot2, 6000);
+}
+
+function Boot2(){
+    document.getElementById("eng_logo").style.display = "none";
+    $("#com_spsh").fadeIn(2000);
+    document.getElementById("com_spsh").style.display = "block";
+    $("#com_spsh").fadeOut(2000);
+    
+    const myTimeout = setTimeout(Boot3, 6000);
+}
+
+function Boot3(){
+    $("#boot").fadeOut(2000);
+    const myTimeout = setTimeout(Boot4, 3000);
+}
+
+function Boot4() {
+    document.getElementById("boot").style.display = "none";
+    UIX(0);
+}
+
 function UIX(loadin) {
     if(isdevmode == 0) {
         //document.getElementById("bg").src = bg;

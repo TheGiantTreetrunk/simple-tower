@@ -304,3 +304,47 @@ button:disabled {
 	transform: translate(-50%, -50%);
 
 }
+
+#boot{
+	position: fixed;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 1;
+	background-color: #000000;
+}
+
+#eng_logo{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 200px;
+	height: 200px;
+	content: url("../../UIX/img/eng_logo.png");
+}
+
+#com_spsh{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 136px;
+	height: 208px;
+	content: url("../../UIX/img/com_spsh.png");
+}
+
+.box {
+    animation: rotateY-anim 4s linear infinite;
+}
+
+@keyframes rotateY-anim {
+    0% {
+        transform: rotateY(0deg);
+    }
+
+    100% {
+        transform: rotateY(360deg);
+    }
+}

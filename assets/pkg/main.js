@@ -1124,6 +1124,16 @@ function Enemy_Attack() {
     }
 }
 
+function endgame(wlconditional){
+    if(wlconditional == 0) {
+
+    }
+
+    if(wlconditional == 1) {
+        
+    }
+}
+
 function Boot() {
     $("#eng_logo").fadeOut();
     $("#com_spsh").fadeOut();

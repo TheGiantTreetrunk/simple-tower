@@ -1125,18 +1125,20 @@ function Enemy_Attack() {
 }
 
 function endgame(wlconditional){
+    document.getElementById("endgame").style.display = "block";
     if(wlconditional == 0) {
 
     }
 
     if(wlconditional == 1) {
-        
+
     }
 }
 
 function Boot() {
     $("#eng_logo").fadeOut();
     $("#com_spsh").fadeOut();
+    document.getElementById("endgame").style.display = "none";
     document.getElementById("eng_logo").style.display = "none";
     document.getElementById("com_spsh").style.display = "none";
     document.getElementById("scene_tower_config").style.display = "none";
@@ -1152,15 +1154,6 @@ function Boot1(){
     $("#eng_logo").fadeIn(2000);
     document.getElementById("eng_logo").style.display = "block";
     $("#eng_logo").fadeOut(2000);
-    const myTimeout = setTimeout(Boot2, 6000);
-}
-
-function Boot2(){
-    document.getElementById("eng_logo").style.display = "none";
-    $("#com_spsh").fadeIn(2000);
-    document.getElementById("com_spsh").style.display = "block";
-    $("#com_spsh").fadeOut(2000);
-    
     const myTimeout = setTimeout(Boot3, 6000);
 }
 
@@ -1185,6 +1178,7 @@ function UIX(loadin) {
         }
 
         if(loadin == 0) {
+            document.getElementById("endgame").style.display = "none";
             document.getElementById("scene_tower_config").style.display = "block";
             document.getElementById("scene_level").style.display = "none";
             document.getElementById("scene_encounter").style.display = "none";

@@ -13,6 +13,13 @@
     font-family: myFirstFont;
 }
 
+input[type=number] {
+	border: 3px solid black;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-shadow: 10px 10px;	
+}
+
 /* width */
 ::-webkit-scrollbar {
 	width: 2px;

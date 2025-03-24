@@ -1025,8 +1025,8 @@ function Encounter(modes) {
         enemy.cur_health -= xx13;
         document.getElementById("plyr_weapon_name").disabled = true;
         var element = document.getElementById("plyr_weapon_name");
-        element.classList.add("button_re_enable");
-        document.getElementById("plyr_weapon_name").style.animationDuration = obj_weapon_damage_a[player.weapon_id];
+        //element.classList.add("button_re_enable");
+        //document.getElementById("plyr_weapon_name").style.animationDuration = obj_weapon_damage_a[player.weapon_id];
         setTimeout(Encounter_Action_main_attack, player.wpn_cool_dwn);
 
         Encounter(1);
@@ -1039,8 +1039,8 @@ function Encounter(modes) {
             player.food -= 1;
             document.getElementById("plyr_heal_name").disabled = true;
             var element = document.getElementById("plyr_heal_name");
-            element.classList.add("button_re_enable");
-            document.getElementById("plyr_heal_name").style.animationDuration = "5s";
+            //element.classList.add("button_re_enable");
+            //document.getElementById("plyr_heal_name").style.animationDuration = "5s";
             setTimeout(Encounter_Action_heal, 5000);
 
             Encounter(1);
@@ -1052,8 +1052,8 @@ function Encounter(modes) {
         enemy.cur_health -= 1;
         document.getElementById("plyr_slap_name").disabled = true;
         var element = document.getElementById("plyr_slap_name");
-        element.classList.add("button_re_enable");
-        document.getElementById("plyr_slap_name").style.animationDuration = "2s";
+        //element.classList.add("button_re_enable");
+        //document.getElementById("plyr_slap_name").style.animationDuration = "2s";
         setTimeout(Encounter_Action_slap, 2000);
 
         Encounter(1);
@@ -1066,8 +1066,8 @@ function Encounter(modes) {
 
             document.getElementById("plyr_armor_name").disabled = true;
             var element = document.getElementById("plyr_armor_name");
-            element.classList.add("button_re_enable");
-            document.getElementById("plyr_armor_name").style.animationDuration = "4s";
+            //element.classList.add("button_re_enable");
+            //document.getElementById("plyr_armor_name").style.animationDuration = "4s";
             setTimeout(Encounter_Action_armor, 4000);
 
             Encounter(1);

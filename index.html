@@ -10,10 +10,16 @@
         <link rel="stylesheet" href="UIX/css/style.css">
         <link rel="stylesheet" href="assets/css/main.css">
         <script src="assets/pkg/main.js"></script>
+        <script src="assets/pkg/jquery.js"></script>
 
     </head>
-    <body class="body_desktop" onload="UIX(0)" onkeydown="keydownFunction()" onkeyup="keyupFunction()">
+    <body class="body_desktop" onload="Boot()" onkeydown="keydownFunction()" onkeyup="keyupFunction()">
+        <div id="boot">
+
+            <img id="eng_logo">
+            <img id="com_spsh" class="">
         
+        </div>
         <div id="rpg_window_confirmation">
 		
 			<div id="" class="confirm_window_background_shader"></div>
@@ -36,13 +42,44 @@
         <br>
 				
         <div id="scene_tower_config">
-            <h1>Simple Tower</h1>
-            Tower Size: <input type="number" id="tower_size" value="10" min="5" max="12"> (min 5 levels, max 12 levels!)
+            <center id="white_out_mm">
+
+                <h1 id="title">Topbound</h1>
+                <p>The First Edition</p>
+
+            </center>
+
             <br>
-            Difficulty: <input type="number" id="difficulty" value="2" min="1" max="3"> (lower the value the easier, higher the value the more difficult!)
             <br>
-            <br>
-            <button id="tower_generator" onclick="start_game()">Generate</button>
+            <center>
+                <div id="generate_box_mm">
+                    <center>
+                        <h3>New Game</h3>
+                    </center>
+                    
+                    Tower Size: <input type="number" id="tower_size" value="10" min="5" max="12">
+                    <br><br>
+                    Difficulty: <input type="number" id="difficulty" value="2" min="1" max="3">
+                    <br>
+                    <br>
+                    <center>
+                        <button id="tower_generator" onclick="start_game()">Generate</button>
+                    </center>
+                    
+                    <br>
+                    <br>
+                    <button id="tower_generator" onclick="">How To Play</button>
+                    <button id="tower_generator" onclick="">Controls</button>
+                    <br>
+                    <br>
+                    (min 5 levels, max 12 levels!)
+                    <br>
+                    (lower the value the easier, higher the value the more difficult!)
+                </div>
+            </center>
+            
+
+            
         </div>
             
         <div id="scene_encounter">
@@ -68,7 +105,7 @@
                 <a class="active" href="#home" style="padding: 1px 8px"><div id="sprite_rose_uix_taskbar_icon"></div></a>
                 <a id="floor"></a>
                 <a id="score"></a>
-                
+                <a id="torch_life"></a>
             </div>
                 
             <div class="topnav_btm">
@@ -95,6 +132,13 @@
             <button id="com_rht" onclick="Game_Command(3)">Right</button>
             <button id="com_opn" onclick="Game_Command(5)">Open</button>
             <button id="com_smh" onclick="Game_Command(6)">Smash</button>
+        </div>
+
+        <div id="endgame">
+            <h2 id="condition_gm">You Something...</h2>
+            <img id="gm_icn_condition">
+            <p id="gm_score">Score: 1000</p>
+            <button onclick="UIX(0)">Return to Main Menu</button>
         </div>
 
 

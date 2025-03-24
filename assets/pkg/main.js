@@ -1,6 +1,7 @@
 var tot_floors = 10;
 var cur_floor = 0;
 var cur_spot = 0;
+var torch_life = 30;
 var encounter_meter = 20;
 var encounter_chance = 1;
 var gm_difficulty = 2;
@@ -429,6 +430,7 @@ function UI_Load_Map() {
 
     document.getElementById("score").innerHTML = "Score: " + player.score;
     document.getElementById("floor").innerHTML = "Floor: " + cur_floor;
+    document.getElementById("torch_life").innerHTML = "Torch Life: " + torch_life;
 
     document.getElementById("floor_map").innerHTML = "<img id='spot0' class='plyr_spot'> "+ "<img id='spot1' class='plyr_spot'>" + "<img class='" + gm_tower_obj_0[cur_floor] + " " + obj_types_names_st[gm_tower_obj_0_a[cur_floor]] + "'>" + "<img id='spot2' class='plyr_spot'> " + "<img class='" + gm_tower_obj_1[cur_floor] + " " + obj_types_names_st[gm_tower_obj_1_a[cur_floor]] + "'>"  + "<img id='spot3' class='plyr_spot'> " + "<img class='" + gm_tower_obj_2[cur_floor] + " " + obj_types_names_st[gm_tower_obj_2_a[cur_floor]] + "'>"  + "<img id='spot4' class='plyr_spot'> " + "<img class='" + gm_tower_obj_3[cur_floor] + " " + obj_types_names_st[gm_tower_obj_3_a[cur_floor]] + "'>"  + " ";
      
@@ -1025,8 +1027,8 @@ function Encounter(modes) {
         enemy.cur_health -= xx13;
         document.getElementById("plyr_weapon_name").disabled = true;
         var element = document.getElementById("plyr_weapon_name");
-        element.classList.add("button_re_enable");
-        document.getElementById("plyr_weapon_name").style.animationDuration = obj_weapon_damage_a[player.weapon_id];
+        //element.classList.add("button_re_enable");
+        //document.getElementById("plyr_weapon_name").style.animationDuration = obj_weapon_damage_a[player.weapon_id];
         setTimeout(Encounter_Action_main_attack, player.wpn_cool_dwn);
 
         Encounter(1);
@@ -1039,8 +1041,8 @@ function Encounter(modes) {
             player.food -= 1;
             document.getElementById("plyr_heal_name").disabled = true;
             var element = document.getElementById("plyr_heal_name");
-            element.classList.add("button_re_enable");
-            document.getElementById("plyr_heal_name").style.animationDuration = "5s";
+            //element.classList.add("button_re_enable");
+            //document.getElementById("plyr_heal_name").style.animationDuration = "5s";
             setTimeout(Encounter_Action_heal, 5000);
 
             Encounter(1);
@@ -1052,8 +1054,8 @@ function Encounter(modes) {
         enemy.cur_health -= 1;
         document.getElementById("plyr_slap_name").disabled = true;
         var element = document.getElementById("plyr_slap_name");
-        element.classList.add("button_re_enable");
-        document.getElementById("plyr_slap_name").style.animationDuration = "2s";
+        //element.classList.add("button_re_enable");
+        //document.getElementById("plyr_slap_name").style.animationDuration = "2s";
         setTimeout(Encounter_Action_slap, 2000);
 
         Encounter(1);
@@ -1066,8 +1068,8 @@ function Encounter(modes) {
 
             document.getElementById("plyr_armor_name").disabled = true;
             var element = document.getElementById("plyr_armor_name");
-            element.classList.add("button_re_enable");
-            document.getElementById("plyr_armor_name").style.animationDuration = "4s";
+            //element.classList.add("button_re_enable");
+            //document.getElementById("plyr_armor_name").style.animationDuration = "4s";
             setTimeout(Encounter_Action_armor, 4000);
 
             Encounter(1);
@@ -1124,6 +1126,49 @@ function Enemy_Attack() {
     }
 }
 
+function endgame(wlconditional){
+    document.getElementById("endgame").style.display = "block";
+    if(wlconditional == 0) {
+
+    }
+
+    if(wlconditional == 1) {
+
+    }
+}
+
+function Boot() {
+    $("#eng_logo").fadeOut();
+    $("#com_spsh").fadeOut();
+    document.getElementById("endgame").style.display = "none";
+    document.getElementById("eng_logo").style.display = "none";
+    document.getElementById("com_spsh").style.display = "none";
+    document.getElementById("scene_tower_config").style.display = "none";
+    document.getElementById("scene_level").style.display = "none";
+    document.getElementById("scene_encounter").style.display = "none";
+    document.getElementById("rpg_window_confirmation").style.display = "none";
+    document.getElementById("scene_menu_bars_level").style.display = "none";
+
+    const myTimeout = setTimeout(Boot1, 3000);
+}
+
+function Boot1(){
+    $("#eng_logo").fadeIn(2000);
+    document.getElementById("eng_logo").style.display = "block";
+    $("#eng_logo").fadeOut(2000);
+    const myTimeout = setTimeout(Boot3, 6000);
+}
+
+function Boot3(){
+    $("#boot").fadeOut(2000);
+    const myTimeout = setTimeout(Boot4, 3000);
+}
+
+function Boot4() {
+    document.getElementById("boot").style.display = "none";
+    UIX(0);
+}
+
 function UIX(loadin) {
     if(isdevmode == 0) {
         //document.getElementById("bg").src = bg;
@@ -1135,6 +1180,7 @@ function UIX(loadin) {
         }
 
         if(loadin == 0) {
+            document.getElementById("endgame").style.display = "none";
             document.getElementById("scene_tower_config").style.display = "block";
             document.getElementById("scene_level").style.display = "none";
             document.getElementById("scene_encounter").style.display = "none";

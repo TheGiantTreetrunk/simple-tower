@@ -428,9 +428,11 @@ function Game_Command(com) {
 
 function UI_Load_Map() {
 
+    var torch_life_tot = ((torch_life / 30) * 100);
+
     document.getElementById("score").innerHTML = "Score: " + player.score;
     document.getElementById("floor").innerHTML = "Floor: " + cur_floor;
-    document.getElementById("torch_life").innerHTML = "Torch Life: " + torch_life;
+    document.getElementById("torch_life").innerHTML = "Torch: " + torch_life_tot + "%";
 
     document.getElementById("floor_map").innerHTML = "<img id='spot0' class='plyr_spot'> "+ "<img id='spot1' class='plyr_spot'>" + "<img class='" + gm_tower_obj_0[cur_floor] + " " + obj_types_names_st[gm_tower_obj_0_a[cur_floor]] + "'>" + "<img id='spot2' class='plyr_spot'> " + "<img class='" + gm_tower_obj_1[cur_floor] + " " + obj_types_names_st[gm_tower_obj_1_a[cur_floor]] + "'>"  + "<img id='spot3' class='plyr_spot'> " + "<img class='" + gm_tower_obj_2[cur_floor] + " " + obj_types_names_st[gm_tower_obj_2_a[cur_floor]] + "'>"  + "<img id='spot4' class='plyr_spot'> " + "<img class='" + gm_tower_obj_3[cur_floor] + " " + obj_types_names_st[gm_tower_obj_3_a[cur_floor]] + "'>"  + " ";
      

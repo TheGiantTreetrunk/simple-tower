@@ -364,6 +364,11 @@ button:disabled {
 	content: url("../../UIX/img/com_spsh.png");
 }
 
+#gm_scene_output {
+	text-align: center;
+	color: #ffffff;
+}
+
 .box {
     animation: rotateY-anim 4s linear infinite;
 }

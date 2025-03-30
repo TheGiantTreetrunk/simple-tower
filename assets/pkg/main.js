@@ -254,6 +254,7 @@ function Generate_Tower() {
     gm_tower_obj_2[tot_floors] = "Door";
     gm_tower_obj_3[tot_floors] = obj_types_names_id[0];
     gm_tower_obj_3[0] = "Door";
+    gm_tower_obj_2[0] = "Campfire";
 
     /*After it overrides everything, we will focus on what the player gets for a weapon as well...*/
     var yy1 = Math.floor((Math.random() * obj_weapon_id.length));

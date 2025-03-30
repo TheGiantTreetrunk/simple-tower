@@ -105,6 +105,9 @@ body {
     content: url("../img/tower/room.png");
 }
 
+.Campfire {
+    content: url("../img/obj/campfire.gif");
+}
 
 .player {
     content: url("../img/npc/sprite_tiny.png");

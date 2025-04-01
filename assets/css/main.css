@@ -101,11 +101,15 @@ body {
     padding: 12px;
 }
 
-#weather_icon_top_left{
+#weather_icon_top_left {
+    position: absolute;
+    top: -16px;
+    left: -16px;
     width: 32px;
     height: 32px;
     background-color: #ffffff;
     border: 3px solid #000000;
+    z-index: 3;
 }
 
 .tower_test {

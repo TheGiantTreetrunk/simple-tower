@@ -101,6 +101,13 @@ body {
     padding: 12px;
 }
 
+#weather_icon_top_left{
+    width: 32px;
+    height: 32px;
+    background-color: #ffffff;
+    border: 3px solid #000000;
+}
+
 .tower_test {
     content: url("../img/tower/room.png");
 }

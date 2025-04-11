@@ -1493,6 +1493,9 @@ function Boot() {
     document.getElementById("scene_encounter").style.display = "none";
     document.getElementById("rpg_window_confirmation").style.display = "none";
     document.getElementById("scene_menu_bars_level").style.display = "none";
+    document.getElementById("fog_effect").style.display = "none";
+    document.getElementById("snowflake_effect").style.display = "none";
+    document.getElementById("rain_effect").style.display = "none";
 
     const myTimeout = setTimeout(Boot1, 3000);
 }

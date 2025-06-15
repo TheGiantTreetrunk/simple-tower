@@ -31,8 +31,6 @@ document.addEventListener("DOMContentLoaded", event => {
 
         .then(result => {
             const user = result.user;
-            //document.write('Hello and welcome! ${user.displayName}' + user.displayName)
-            
             console.log(user)
             usrn = user.displayName
             writeUserData()
@@ -55,9 +53,9 @@ var plyr_dd = {
 };
 
 function Update() {
-  document.getElementById("test").innerHTML = "Welcome!!!!" + usrn;
-  document.getElementById("sgn_in").style.display = "none";
-  document.getElementById("sgn_up").style.display = "none";
+  document.getElementById("test").innerHTML = "Welcome " + usrn +"!";
+  document.getElementById("acc_popup").style.display = "none";
+  document.getElementById("login_popup").style.display = "block";
 
   const db = firebase.firestore();
   const myacc = db.collection('User').doc(usrn);
@@ -99,6 +97,6 @@ function writeUserData() {
 
 
   document.getElementById("test").innerHTML = "Welcome!!!!" + usrn;
-  document.getElementById("sgn_in").style.display = "none";
-  document.getElementById("sgn_up").style.display = "none";
+  document.getElementById("acc_popup").style.display = "none";
+  document.getElementById("login_popup").style.display = "block";
 }

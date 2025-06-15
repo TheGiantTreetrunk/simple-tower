@@ -22,14 +22,25 @@
       to avoid connecting the SDK to running emulators.
     -->
     <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+
+    <link rel="stylesheet" href="acc_style.css">
+    <link rel="stylesheet" href="UIX/css/style.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/rain.css">
+    <link rel="stylesheet" href="assets/css/snow.css">
+    <link rel="stylesheet" href="assets/css/fog.css">
+    <script src="assets/pkg/main.js"></script>
+    <script src="assets/pkg/jquery.js"></script>
+
+    <script src="acc.js"></script>
   </head>
-  <body>
+  <body onload="start()">
 
 
-    <div id="">
+    <div id="acc_popup">
 
-      <h3 id="test">Sign in to continue...</h3>
-      <p>Topbound uses Google API for quick and easy account login and registration.</p>
+      <h3>Sign in to continue</h3>
+      <p>Topbound uses the Google API for quick and easy account login and registration.</p>
       
       <br>
       
@@ -47,7 +58,18 @@
       <br>
       <br>
 
-      <p>All user data is kept under lock and key to protect you the user. We will not sell user information to third parties.</p>
+      <p>***All user data is kept under lock and key to protect you the user. We will not sell user information to third parties.</p>
+
+    </div>
+
+    <div id="login_popup">
+
+      <h3 id="test">Sign in to continue</h3>
+      <br>
+      
+      <button>
+        Lets Go!
+      </button>
 
     </div>
 

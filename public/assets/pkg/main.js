@@ -1497,6 +1497,8 @@ function Boot() {
     document.getElementById("snowflake_effect").style.display = "none";
     document.getElementById("rain_effect").style.display = "none";
     document.getElementById("scene_menu_bars_mm").style.display = "none";
+    document.getElementById("login_popup").style.display = "none";
+    document.getElementById("acc_popup").style.display = "none";
 
 
     const myTimeout = setTimeout(Boot1, 3000);
@@ -1516,7 +1518,7 @@ function Boot3(){
 
 function Boot4() {
     document.getElementById("boot").style.display = "none";
-    UIX(0);
+    UIX(4);
 }
 
 function UIX(loadin) {
@@ -1529,7 +1531,22 @@ function UIX(loadin) {
             ismobile = 1;
         }
 
+        if(loadin == 4) {
+            document.getElementById("login_popup").style.display = "none";
+            document.getElementById("acc_popup").style.display = "block";
+
+
+            document.getElementById("scene_menu_bars_mm").style.display = "none";
+            document.getElementById("endgame").style.display = "none";
+            document.getElementById("scene_tower_config").style.display = "none";
+            document.getElementById("scene_level").style.display = "none";
+            document.getElementById("scene_encounter").style.display = "none";
+            document.getElementById("rpg_window_confirmation").style.display = "none";
+            document.getElementById("scene_menu_bars_level").style.display = "none";
+        }
+
         if(loadin == 0) {
+            document.getElementById("login_popup").style.display = "none";
             document.getElementById("scene_menu_bars_mm").style.display = "block";
             document.getElementById("endgame").style.display = "none";
             document.getElementById("scene_tower_config").style.display = "block";

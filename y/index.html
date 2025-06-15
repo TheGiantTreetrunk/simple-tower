@@ -25,39 +25,12 @@
   </head>
   <body>
     <p id="test">Sign in to continue...</p>
-    <button onclick="googleLogin()">
+    <button id="sgn_in" onclick="googleLogin()">
       Login with Google
     </button>
 
-    <script >
-      document.addEventListener("DOMContentLoaded", event => {
-
-      const app = firebase.app();
-      console.log(app);
-      });
-
-    var usrn = "";
-    function googleLogin(){
-        const provider = new firebase.auth.GoogleAuthProvider();
-
-        firebase.auth().signInWithPopup(provider)
-
-        .then(result => {
-            const user = result.user;
-            //document.write('Hello and welcome! ${user.displayName}' + user.displayName)
-            
-            console.log(user)
-            usrn = user.displayName
-            Update()
-        })
-        .catch(console.log);
-
-        
-    }
-
-function Update() {
-  document.getElementById("test").innerHTML = "Welcome!!!!" + usrn;
-}
+    <script src="app.js">
+      
     </script>
   </body>
 </html>

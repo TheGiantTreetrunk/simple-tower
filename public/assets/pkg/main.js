@@ -1546,6 +1546,7 @@ function UIX(loadin) {
         }
 
         if(loadin == 0) {
+            document.getElementById("acc_popup").style.display = "none";
             document.getElementById("login_popup").style.display = "none";
             document.getElementById("scene_menu_bars_mm").style.display = "block";
             document.getElementById("endgame").style.display = "none";
@@ -1554,6 +1555,7 @@ function UIX(loadin) {
             document.getElementById("scene_encounter").style.display = "none";
             document.getElementById("rpg_window_confirmation").style.display = "none";
             document.getElementById("scene_menu_bars_level").style.display = "none";
+            
         }
 
         if(loadin == 1) {

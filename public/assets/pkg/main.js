@@ -1496,7 +1496,6 @@ function Boot() {
     document.getElementById("fog_effect").style.display = "none";
     document.getElementById("snowflake_effect").style.display = "none";
     document.getElementById("rain_effect").style.display = "none";
-    document.getElementById("scene_menu_bars_mm").style.display = "none";
     document.getElementById("login_popup").style.display = "none";
     document.getElementById("acc_popup").style.display = "none";
 
@@ -1529,6 +1528,12 @@ function UIX(loadin) {
 
         if(w <= 480) {
             ismobile = 1;
+            document.getElementById("scene_level").style.zoom = 0;
+        }
+
+        if(loadin == 5) {
+            document.getElementById("acc_popup").style.display = "none";
+            document.getElementById("login_popup").style.display = "block";
         }
 
         if(loadin == 4) {
@@ -1536,7 +1541,6 @@ function UIX(loadin) {
             document.getElementById("acc_popup").style.display = "block";
 
 
-            document.getElementById("scene_menu_bars_mm").style.display = "none";
             document.getElementById("endgame").style.display = "none";
             document.getElementById("scene_tower_config").style.display = "none";
             document.getElementById("scene_level").style.display = "none";
@@ -1548,7 +1552,6 @@ function UIX(loadin) {
         if(loadin == 0) {
             document.getElementById("acc_popup").style.display = "none";
             document.getElementById("login_popup").style.display = "none";
-            document.getElementById("scene_menu_bars_mm").style.display = "block";
             document.getElementById("endgame").style.display = "none";
             document.getElementById("scene_tower_config").style.display = "block";
             document.getElementById("scene_level").style.display = "none";

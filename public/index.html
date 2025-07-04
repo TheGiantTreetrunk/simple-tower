@@ -49,41 +49,95 @@
 
     <div id="acc_popup">
 
-      <h3>Sign in to continue</h3>
-      <p>Topbound uses the Google API for quick and easy account login and registration.</p>
-      
-      <br>
-      
-      <button id="sgn_in" onclick="googleLogin()">
-        Login with Google
-      </button>
+      <center id="white_out_mm">
 
-      <br>
-      <br>
+                <h1 id="title">Topbound</h1>
+                <p>The First Edition</p>
 
-      <button id="sgn_up" onclick="googleSignUp()">
-        Signup with Google
-      </button>
+                <button class="buttonmm" id="sgn_up" onclick="UIX(0)">
+                  Play Now
+                </button>
 
-      <br>
-      <br>
+                <br><br>
 
-      <button id="sgn_up" onclick="UIX(0)">
-        Skip (No progress saving!)
-      </button>
+                <button class="buttonmm" id="sgn_up" onclick="UIX(5)">
+                  How To Play
+                </button>
 
-      <p>***All user data is kept under lock and key to protect you the user. We will not sell user information to third parties.</p>
+                <br><br>
+
+                <button class="buttonmm" id="sgn_up" onclick="UIX(0)">
+                  Support
+                </button>
+
+                <br><br>
+      </center>
 
     </div>
 
     <div id="login_popup">
 
-      <h3 id="test">Sign in to continue</h3>
-      <br>
+      <div class="message-container">
+        <!-- Message -->
+        <center>
+          <h1 id="message">Try out the controls below on a keyboard!</h1>
+          <p>
+            *If on a mobile device we have touch controls automativally enabled.*
+            <br>
+            Controller support coming soon!
+          </p>
+        </center>
+      </div>
+
+      <div class="keyboard">
+        <!-- Top Row -->
+        <div class="top-row">
+          <!-- Key -->
+          <div data-key="87" class="key">
+            <!-- Character -->
+            <p>W</p>
+          </div>
+        </div>
+        <!-- Bottom Row -->
+        <div class="bottom-row">
+          <!-- Key -->
+          <div data-key="65" class="key">
+            <!-- Character -->
+            <p>A</p>
+          </div>
+          <!-- Key -->
+          <div data-key="83" class="key">
+            <!-- Character -->
+            <p>S</p>
+          </div>
+          <!-- Key -->
+          <div data-key="68" class="key">
+            <!-- Character -->
+            <p>D</p>
+          </div>
+        </div>
+        <center>
+        <!-- Bottom Row -->
+        <div class="bottom-row">
+          <div data-key="75" class="key">
+            <!-- Character -->
+            <p>K</p>
+          </div>
+
+          <div data-key="79" class="key">
+            <!-- Character -->
+            <p>O</p>
+          </div>
+        </div>
+        </center>
+
+      </div>
       
-      <button onclick="UIX(0)">
-        Lets Go!
+      <center>
+      <button onclick="UIX(4)">
+        Back
       </button>
+      </center>
 
     </div>
 
@@ -132,30 +186,9 @@
 
     <br>
     <br>
-				
-
-        <div id="scene_menu_bars_mm">
-                
-            <div class="topnav_btm">
-                <center id="plyr_hud">
-                    <a id=""><button>Hero</button></a>
-                    <a id=""><button>Community</button></a>
-                </center>
-            </div>
-
-        </div>
 
 
         <div id="scene_tower_config">
-            <center id="white_out_mm">
-
-                <h1 id="title">Topbound</h1>
-                <p>The First Edition</p>
-
-            </center>
-
-            <br>
-            <br>
             <center>
                 <div id="generate_box_mm">
                     <center>

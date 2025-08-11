@@ -217,7 +217,7 @@ body {
 .Anvil.Open {
     width: 32px;
     height: 32px;
-    content: url("../img/obj/sprite_anvil.png");
+    content: url("../img/obj/sprite_anvil_opened.png");
 }
 
 .Anvil.Smashed {
@@ -235,7 +235,7 @@ body {
 .Bookshelf.Open {
     width: 32px;
     height: 32px;
-    content: url("../img/obj/sprite_bookshelf.png");
+    content: url("../img/obj/sprite_bookshelf_opened.png");
 }
 
 .Bookshelf.Smashed {
@@ -253,7 +253,7 @@ body {
 .Clock.Open {
     width: 32px;
     height: 32px;
-    content: url("../img/obj/sprite_clock.png");
+    content: url("../img/obj/sprite_clock_opened.png");
 }
 
 .Clock.Smashed {
@@ -271,7 +271,7 @@ body {
 .Dresser.Open {
     width: 32px;
     height: 32px;
-    content: url("../img/obj/sprite_dresser.png");
+    content: url("../img/obj/sprite_dresser_opened.png");
 }
 
 .Dresser.Smashed {
@@ -289,7 +289,7 @@ body {
 .Wardrobe.Open {
     width: 32px;
     height: 32px;
-    content: url("../img/obj/sprite_dresser_mirror.png");
+    content: url("../img/obj/sprite_dresser_mirror_opened.png");
 }
 
 .Wardrobe.Smashed {
@@ -307,7 +307,7 @@ body {
 .Fireplace.Open {
     width: 32px;
     height: 32px;
-    content: url("../img/obj/sprite_fireplace.png");
+    content: url("../img/obj/sprite_fireplace_opened.png");
 }
 
 .Fireplace.Smashed {
@@ -325,7 +325,7 @@ body {
 .Globe.Open {
     width: 32px;
     height: 32px;
-    content: url("../img/obj/sprite_globe.png");
+    content: url("../img/obj/sprite_globe_opened.png");
 }
 
 .Globe.Smashed {
@@ -343,7 +343,7 @@ body {
 .Guillotine.Open {
     width: 32px;
     height: 32px;
-    content: url("../img/obj/sprite_guillotine.png");
+    content: url("../img/obj/sprite_guillotine_opened.png");
 }
 
 .Guillotine.Smashed {
@@ -361,7 +361,7 @@ body {
 .Keg.Open {
     width: 32px;
     height: 32px;
-    content: url("../img/obj/sprite_keg.png");
+    content: url("../img/obj/sprite_keg_opened.png");
 }
 
 .Keg.Smashed {
@@ -379,7 +379,7 @@ body {
 .Lecturn.Open {
     width: 32px;
     height: 32px;
-    content: url("../img/obj/sprite_lecturn.png");
+    content: url("../img/obj/sprite_lecturn_opened.png");
 }
 
 .Lecturn.Smashed {
@@ -397,7 +397,7 @@ body {
 .Telescope.Open {
     width: 32px;
     height: 32px;
-    content: url("../img/obj/sprite_li_recon_icon.png");
+    content: url("../img/obj/sprite_li_recon_icon_opened.png");
 }
 
 .Telescope.Smashed {
@@ -415,7 +415,7 @@ body {
 .Vase.Open {
     width: 32px;
     height: 32px;
-    content: url("../img/obj/sprite_li_water_icon.png");
+    content: url("../img/obj/sprite_li_water_icon_opened.png");
 }
 
 .Vase.Smashed {
@@ -433,7 +433,7 @@ body {
 .Mirror.Open {
     width: 32px;
     height: 32px;
-    content: url("../img/obj/sprite_mirror.png");
+    content: url("../img/obj/sprite_mirror_opened.png");
 }
 
 .Mirror.Smashed {
@@ -451,7 +451,7 @@ body {
 .Pillar.Open {
     width: 32px;
     height: 32px;
-    content: url("../img/obj/sprite_pillar_flame_2.png");
+    content: url("../img/obj/sprite_pillar_flame_2_opened.png");
 }
 
 .Pillar.Smashed {
@@ -469,7 +469,7 @@ body {
 .Table.Open {
     width: 32px;
     height: 32px;
-    content: url("../img/obj/sprite_small_desk_with_vase.png");
+    content: url("../img/obj/sprite_small_desk_with_vase_opened.png");
 }
 
 .Table.Smashed {
@@ -487,7 +487,7 @@ body {
 .Pillory.Open {
     width: 32px;
     height: 32px;
-    content: url("../img/obj/sprite_pillory.png");
+    content: url("../img/obj/sprite_pillory_opened.png");
 }
 
 .Pillory.Smashed {
@@ -505,7 +505,7 @@ body {
 .Stove.Open {
     width: 32px;
     height: 32px;
-    content: url("../img/obj/sprite_stove.png");
+    content: url("../img/obj/sprite_stove_opened.png");
 }
 
 .Stove.Smashed {

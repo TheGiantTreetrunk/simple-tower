@@ -1,0 +1,50 @@
+4
+
+from old project, implement this for main menu...
+
+<div class="tab">
+						<button class="tablinks" onclick="tabz(event, 'commanda')">Commands</button>
+						<button class="tablinks" onclick="tabz(event, 'inventoria')">Inventory</button>
+						<button class="tablinks" onclick="tabz(event, 'structurez')">Structures</button>
+					</div>
+
+					<!-- Tab content -->
+					<div id="commanda" class="tabcontent">
+						<table class="rpg_command_box">
+							<tr>
+								<td><li class="icon_list_forward_icon"><a class="comanno" onclick="Commands(1)">Forward</a></li></td>
+								<td><li class="icon_list_retreat_icon"><a class="comanno" onclick="Commands(2)">Retreat</a></li></td>
+							</tr>
+							<tr>
+								<td><li class="icon_list_food_icon"><a class="comanno" onclick="Commands(3)">Eat</a></li></td>
+								<td><li class="icon_list_water_icon"><a class="comanno" onclick="Commands(4)">Drink</a></li></td>
+							</tr>
+							<tr>
+								<td><li class="icon_list_sleep_icon"><a class="comanno" >Sleep</a></li></td>
+								<td><li class="icon_list_forage_icon"><a class="comanno" >Forage</a></li></td>
+							</tr>
+							<tr>
+								<td><li class=""><a class="comanno" >Chop Wood</a></li></td>
+								<td><li class=""><a class="comanno" >Mine</a></li></td>
+							</tr>
+							<tr>
+								<td><li class="icon_list_dowsing_icon"><a class="comanno" >Dowsing</a></li></td>
+								<td><li class="icon_list_camp_icon"><a class="comanno" >Set Camp</a></li></td>
+							</tr>
+							<tr>
+								<td><li class="icon_list_recon_icon"><a class="comanno" >Reconnaissance</a></li></td>
+								<td><li class=""><a class="comanno" >Fast Travel</a></li></td>
+							</tr>
+							
+						</table>
+					</div>
+
+					<div id="inventoria" class="tabcontent">
+						<p id="inventory_list"></p>
+					</div>
+
+					<div id="structurez" class="tabcontent">
+						<p>Structures</p>
+						<p>Nothing seems to be around here...</p>
+						<button>Search</button>
+					</div>

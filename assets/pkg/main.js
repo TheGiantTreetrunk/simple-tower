@@ -24,6 +24,11 @@ var gm_tower_obj_1_i = [];
 var gm_tower_obj_2_i = [];
 var gm_tower_obj_3_i = [];
 
+var gm_tower_obj_0_ano = [];
+var gm_tower_obj_1_ano = [];
+var gm_tower_obj_2_ano = [];
+var gm_tower_obj_3_ano = [];
+
 
 var obj_types_id = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19];
 var obj_types_names_id = ["Nothing","Chest","Barrel","Anvil", "Bookshelf","Clock","Dresser","Wardrobe","Fireplace","Globe","Guillotine","Keg","Lecturn","Telescope","Vase","Mirror","Pillar","Table","Pillory","Stove"];
@@ -187,6 +192,11 @@ function Generate_Tower() {
     gm_tower_obj_1_i.length = 0;
     gm_tower_obj_2_i.length = 0;
     gm_tower_obj_3_i.length = 0;
+
+    gm_tower_obj_0_ano.length = 0;
+    gm_tower_obj_1_ano.length = 0;
+    gm_tower_obj_2_ano.length = 0;
+    gm_tower_obj_3_ano.length = 0;
 
     for (var i = 0; i < tot_floors; i++) {
         /*Getting Floor Needing to generate*/
